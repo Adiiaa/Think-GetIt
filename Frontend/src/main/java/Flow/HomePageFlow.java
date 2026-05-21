@@ -1,6 +1,7 @@
 package Flow;
 
 import com.microsoft.playwright.Page;
+import constants.pageUrls;
 import pages.HomePage;
 
 public class HomePageFlow {
@@ -29,13 +30,13 @@ public class HomePageFlow {
     }
 
     public boolean isOnShopPage(){
-        page.waitForURL("https://think-and-get-it-frontend.onrender.com/products");
+        page.waitForURL(pageUrls.SHOP);
         System.out.println("Current URL: " + page.url());
         return page.url().contains("products");
     }
 
     public boolean isOnFlashPage(){
-        page.waitForURL("https://think-and-get-it-frontend.onrender.com/products?flash_sale=true");
+        page.waitForURL(pageUrls.FLASH_SALE);
         System.out.println("Current URL: " + page.url());
         return page.url().contains("flash");
     }

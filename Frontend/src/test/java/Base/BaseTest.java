@@ -1,6 +1,7 @@
 package Base;
 
 import com.microsoft.playwright.*;
+import constants.pageUrls;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,7 +22,7 @@ public class BaseTest {
     void setup(){
       context = browser.newContext();
       page = context.newPage();
-      page.navigate("https://think-and-get-it-frontend.onrender.com/");
+      page.navigate(pageUrls.BASE_URL);
   }
   @AfterEach
     void tearDown(){
