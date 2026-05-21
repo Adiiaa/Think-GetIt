@@ -22,4 +22,13 @@ public class ThinkGetItAPI {
  public String getToken(String email, String password){
      return login(email, password).jsonPath().getString("data.token");
  }
+
+ public Response register(String firstname, String lastname, String email, String password){
+     Map<String, String> payload = new HashMap<>();
+     payload.put("firstname", firstname);
+     payload.put("lastname", lastname);
+     payload.put("email", email);
+     payload.put("password", password);
+     return BaseApi.post(Endpoints.REGISTER, payload);
+ }
 }
