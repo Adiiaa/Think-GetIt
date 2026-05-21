@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ThinkGetItAPI {
+
  public Response login(String email, String password){
      Map<String, String> payload = new HashMap<>();
      payload.put("email", email);

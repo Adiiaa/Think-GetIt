@@ -19,7 +19,7 @@ public class BaseApi {
     }
 
     public static Response postWithToken(String endpoint, Object body, String token) {
-        return given()
+        return given(getRequestSpec())
                 .header("Authorization", "Bearer " + token)
                 .body(body)
                 .when()
@@ -30,7 +30,7 @@ public class BaseApi {
     }
 
     public static Response getWithToken(String endpoint, String token) {
-        return given()
+        return given(getRequestSpec())
                 .header("Authorization", "Bearer " + token)
                 .when()
                 .get(endpoint)
