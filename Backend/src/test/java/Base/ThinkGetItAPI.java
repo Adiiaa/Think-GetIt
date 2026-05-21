@@ -25,8 +25,8 @@ public class ThinkGetItAPI {
 
  public Response register(String firstname, String lastname, String email, String password){
      Map<String, String> payload = new HashMap<>();
-     payload.put("firstname", firstname);
-     payload.put("lastname", lastname);
+     payload.put("firstName", firstname);
+     payload.put("lastName", lastname);
      payload.put("email", email);
      payload.put("password", password);
      return BaseApi.post(Endpoints.REGISTER, payload);
