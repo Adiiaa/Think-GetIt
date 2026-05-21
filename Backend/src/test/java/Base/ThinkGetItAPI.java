@@ -1,0 +1,24 @@
+package Base;
+
+import Routes.Endpoints;
+import io.restassured.response.Response;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ThinkGetItAPI {
+ public Response login(String email, String password){
+     Map<String, String> payload = new HashMap<>();
+     payload.put("email", email);
+     payload.put("password", password);
+     return BaseApi.post(Endpoints.LOGIN, payload);
+ }
+
+ public Response getMe(String token){
+     return BaseApi.getWithToken(Endpoints.ME, token);
+ }
+
+ public String getToken(String email, String password){
+     return login(email, password).jsonPath().getString("data.token");
+ }
+}
