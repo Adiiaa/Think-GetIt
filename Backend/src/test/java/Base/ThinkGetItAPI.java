@@ -46,4 +46,14 @@ public class ThinkGetItAPI {
      payload.put("password", password);
      return BaseApi.post(Endpoints.RESET_PASSWORD + token, payload);
     }
+
+    public Response refreshToken(String refreshToken){
+     Map<String, String> payload = new HashMap<>();
+     payload.put("refreshToken", refreshToken);
+     return BaseApi.post(Endpoints.REFRESH_TOKEN, payload);
+    }
+
+    public String getRefreshToken(String email, String password){
+     return login(email, password).jsonPath().getString("data.refreshToken");
+    }
 }
