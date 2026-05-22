@@ -35,4 +35,10 @@ public class ThinkGetItAPI {
         return BaseApi.get(Endpoints.VERIFY_EMAIL + token);
     }
 
+    public Response forgotPassword(String email){
+        Map<String, String> payload = new HashMap<>();
+        payload.put("email", email);
+        return BaseApi.post(Endpoints.FORGOT_PASSWORD, payload);
+    }
+
 }
