@@ -31,6 +31,8 @@ public class ThinkGetItAPI {
      payload.put("password", password);
      return BaseApi.post(Endpoints.REGISTER, payload);
  }
-
+    public Response verifyEmail(String token){
+        return BaseApi.get(Endpoints.VERIFY_EMAIL + token);
+    }
 
 }
