@@ -41,4 +41,9 @@ public class ThinkGetItAPI {
         return BaseApi.post(Endpoints.FORGOT_PASSWORD, payload);
     }
 
+    public Response resetPassword(String token, String password){
+     Map<String, String> payload = new HashMap<>();
+     payload.put("password", password);
+     return BaseApi.post(Endpoints.RESET_PASSWORD + token, payload);
+    }
 }
