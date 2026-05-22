@@ -7,11 +7,14 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import util.configLoader;
 
+import static Filters.FilterUtil.getLoggingFilters;
+
 public class specBuilder {
 
     public static RequestSpecification getRequestSpec(){
         return new RequestSpecBuilder()
                 .setBaseUri(configLoader.getBaseUrl())
+                .addFilters(getLoggingFilters())
                 .setContentType(ContentType.JSON).
                 build();
     }
