@@ -1,0 +1,59 @@
+package Base;
+
+import Routes.Endpoints;
+import io.restassured.response.Response;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ThinkGetItAPI {
+
+ public Response login(String email, String password){
+     Map<String, String> payload = new HashMap<>();
+     payload.put("email", email);
+     payload.put("password", password);
+     return BaseApi.post(Endpoints.LOGIN, payload);
+ }
+
+ public Response getMe(String token){
+     return BaseApi.getWithToken(Endpoints.ME, token);
+ }
+
+ public String getToken(String email, String password){
+     return login(email, password).jsonPath().getString("data.token");
+ }
+
+ public Response register(String firstname, String lastname, String email, String password){
+     Map<String, String> payload = new HashMap<>();
+     payload.put("firstName", firstname);
+     payload.put("lastName", lastname);
+     payload.put("email", email);
+     payload.put("password", password);
+     return BaseApi.post(Endpoints.REGISTER, payload);
+ }
+    public Response verifyEmail(String token){
+        return BaseApi.get(Endpoints.VERIFY_EMAIL + token);
+    }
+
+    public Response forgotPassword(String email){
+        Map<String, String> payload = new HashMap<>();
+        payload.put("email", email);
+        return BaseApi.post(Endpoints.FORGOT_PASSWORD, payload);
+    }
+
+    public Response resetPassword(String token, String password){
+     Map<String, String> payload = new HashMap<>();
+     payload.put("password", password);
+     return BaseApi.post(Endpoints.RESET_PASSWORD + token, payload);
+    }
+
+    public Response refreshToken(String refreshToken){
+     Map<String, String> payload = new HashMap<>();
+     payload.put("refreshToken", refreshToken);
+     return BaseApi.post(Endpoints.REFRESH_TOKEN, payload);
+    }
+
+    public String getRefreshToken(String email, String password){
+     return login(email, password).jsonPath().getString("data.refreshToken");
+    }
+}
