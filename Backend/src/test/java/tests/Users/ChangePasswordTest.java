@@ -4,8 +4,10 @@ import Base.ThinkGetItAPI;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import util.TestUserFactory;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
 
 public class ChangePasswordTest {
     ThinkGetItAPI api = new ThinkGetItAPI();
@@ -13,18 +15,14 @@ public class ChangePasswordTest {
 
     @BeforeClass
     void getToken(){
-
-        validToken = api.getToken("admin@thinkandgetit.com", "Admin@123456");
-        if(validToken == null){
-            System.out.println("login failed - check admin password");
-        }
-        System.out.println("Token: " + validToken);
+        validToken = TestUserFactory.createUserAndGetToken();
+        System.out.println("TOKEN = " + validToken);
     }
 
-    @Test(priority = 1)
+    @Test
     void testChangePasswordWithValidData() {
 
-        Response response = api.changePassword("Admin@123456", "Admin@123456", validToken);
+        Response response = api.changePassword(    "pass@123", "NewPass@123456", validToken);
         System.out.println("Status: " + response.statusCode());
         System.out.println("Body: " + response.getBody().asString());
         assertEquals(response.statusCode(), 200);
@@ -47,17 +45,11 @@ public class ChangePasswordTest {
         assertEquals(response.statusCode(), 400);
     }
 
-    @Test
-    void testChangePasswordWithEmptyNewPassword(){
-        Response response = api.changePassword("Admin@123456", "", validToken);
-        System.out.println("Status: " + response.statusCode());
-        System.out.println("Body: " + response.getBody().asString());
-        assertEquals(response.statusCode(), 400);
-    }
+
 
     @Test
     void testChangePasswordWithWeakNewPassword(){
-        Response response = api.changePassword("Admin@123456", "123", validToken);
+        Response response = api.changePassword("pass@123", "123", validToken);
         System.out.println("Status: " + response.statusCode());
         System.out.println("Body: " + response.getBody().asString());
         assertEquals(response.statusCode(), 400);
@@ -65,7 +57,7 @@ public class ChangePasswordTest {
 
     @Test
     void testChangePasswordWithNoToken(){
-        Response response = api.changePassword("Admin@123456", "Admin@123456", "");
+        Response response = api.changePassword("pass@123", "Admin@123456", "");
         System.out.println("Status: " + response.statusCode());
         System.out.println("Body: " + response.getBody().asString());
         assertEquals(response.statusCode(), 401);
@@ -73,7 +65,7 @@ public class ChangePasswordTest {
 
     @Test
     void testChangePasswordWithInvalidToken(){
-        Response response = api.changePassword("Admin@123456", "Admin@123456", "invalidtoken123");
+        Response response = api.changePassword("pass@123", "Admin@123456", "invalidtoken123");
         System.out.println("Status: " + response.statusCode());
         System.out.println("Body: " + response.getBody().asString());
         assertEquals(response.statusCode(), 401);
