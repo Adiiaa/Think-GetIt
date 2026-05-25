@@ -56,4 +56,12 @@ public class ThinkGetItAPI {
     public String getRefreshToken(String email, String password){
      return login(email, password).jsonPath().getString("data.refreshToken");
     }
+
+    public Response updateProfile(String firstName, String lastName, String phone, String token){
+        Map<String, String> payload = new HashMap<>();
+        payload.put("firstName", firstName);
+        payload.put("lastName", lastName);
+        payload.put("phone", phone);
+        return BaseApi.put(Endpoints.UPDATE_PROFILE, payload, token);
+    }
 }

@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
-public class LoginApiTest {
+public class  LoginApiTest {
     ThinkGetItAPI thinkApi = new ThinkGetItAPI();
     @Test
     void testValidLoginReturns200() {
