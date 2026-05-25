@@ -2,6 +2,7 @@ package tests.Aunthentication;
 
 import Base.ThinkGetItAPI;
 import io.restassured.response.Response;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -10,39 +11,51 @@ import static org.testng.Assert.assertNotNull;
 public class  LoginApiTest {
     ThinkGetItAPI thinkApi = new ThinkGetItAPI();
 
+    String email;
+    String password;
+
+    @BeforeClass
+    void setUpUser(){
+        email = "user" + System.currentTimeMillis() + "@test.com";
+        password = "pass@123";
+        Response registerResponse = thinkApi.register("Test", "user", email, password);
+        System.out.println(registerResponse.getBody().asString());
+    }
+
     @Test
-    void testValidLoginReturns200() {
-        Response response = thinkApi.login("admin@thinkandgetit.com", "Admin@123456");
+    void testValidLogin() {
+        Response response = thinkApi.login(email, password);
         assertEquals(200, response.statusCode());
     }
 
     @Test
     void testValidLoginReturnsToken() {
-        String token = thinkApi.getToken("admin@thinkandgetit.com", "Admin@123456");
+        String token = thinkApi.getToken(email, password);
+        System.out.println("Token = " + token);
         assertNotNull(token);
     }
 
     @Test
-    void testLoginWithWrongPasswordReturns401() {
-        Response response = thinkApi.login("admin@thinkandgetit.com", "WrongPassword");
+    void testLoginWithWrongPassword() {
+        Response response = thinkApi.login(email, "WrongPassword");
         assertEquals(401, response.statusCode());
     }
 
     @Test
-    void testLoginWithWrongEmailReturns401() {
-        Response response = thinkApi.login("wrong@email.com", "Admin@123456");
+    void testLoginWithWrongEmail() {
+        Response response = thinkApi.login("wrong@email.com", password);
         assertEquals(401, response.statusCode());
     }
 
     @Test
     void testLoginWithEmptyEmail() {
-        Response response = thinkApi.login("", "Admin@123456");
+        Response response = thinkApi.login("", password);
         assertEquals(401, response.statusCode());
     }
 
     @Test
     void testLoginWithEmptyPassword() {
-        Response response = thinkApi.login("admin@thinkandgetit.com", "");
+        Response response = thinkApi.login(email, "");
         assertEquals(401, response.statusCode());
     }
 
