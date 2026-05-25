@@ -64,4 +64,11 @@ public class ThinkGetItAPI {
         payload.put("phone", phone);
         return BaseApi.put(Endpoints.UPDATE_PROFILE, payload, token);
     }
+
+    public Response changePassword(String currentPassword, String newPassword, String token){
+     Map<String, String> payload = new HashMap<>();
+     payload.put("currentPassword", currentPassword);
+     payload.put("newPassword", newPassword);
+     return BaseApi.put(Endpoints.CHANGE_PASSWORD,  payload, token);
+    }
 }

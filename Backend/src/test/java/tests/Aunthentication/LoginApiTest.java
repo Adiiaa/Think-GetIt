@@ -9,6 +9,7 @@ import static org.testng.Assert.assertNotNull;
 
 public class  LoginApiTest {
     ThinkGetItAPI thinkApi = new ThinkGetItAPI();
+
     @Test
     void testValidLoginReturns200() {
         Response response = thinkApi.login("admin@thinkandgetit.com", "Admin@123456");
