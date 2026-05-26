@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import util.TestUserFactory;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNull;
 
 public class UploadAvatarTest {
 
@@ -25,5 +26,11 @@ public class UploadAvatarTest {
     void testUploadAvatarWithValidImage(){
         Response response = api.uploadAvatar(validImagePath, token);
         assertEquals(response.statusCode(), 200);
+    }
+    @Test
+    void testUploadAvatarWithWrongFileType(){
+        Response response = api.uploadAvatar(invalidFilePath, token);
+        assertEquals(response.statusCode(), 200);
+        assertNull(response.jsonPath().getString("data.avatar"));
     }
 }
