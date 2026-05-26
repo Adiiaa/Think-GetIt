@@ -11,4 +11,7 @@ public class Endpoints {
     public static final String UPDATE_PROFILE = "/users/profile";
     public static final String CHANGE_PASSWORD = "/users/change-password";
     public static final String USER_ADDRESS = "/users/addresses";
+    public static final String ADD_ADDRESS = "/users/addresses";
+
+
 }
