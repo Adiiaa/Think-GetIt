@@ -91,4 +91,8 @@ public class ThinkGetItAPI {
         payload.put("isDefault", isDefault);
         return BaseApi.postWithToken(Endpoints.ADD_ADDRESS, payload, token);
     }
+    public Response uploadAvatar(String filePath, String token){
+        return BaseApi.postMultipart(Endpoints.UPLOAD_AVATAR, filePath, token);
+    }
+
 }

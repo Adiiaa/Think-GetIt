@@ -68,4 +68,16 @@ public class BaseApi {
                 .extract()
                 .response();
     }
+
+    public static Response postMultipart(String endpoint, String filePath, String token) {
+        return given(getRequestSpec())
+                .header("Authorization", "Bearer " + token)
+                .contentType("multipart/form-data")
+                .multiPart("avatar", new java.io.File(filePath))
+                .when()
+                .post(endpoint)
+                .then()
+                .extract()
+                .response();
+    }
 }
