@@ -56,4 +56,7 @@ public class ThinkGetItAPI {
     public String getRefreshToken(String email, String password){
      return login(email, password).jsonPath().getString("data.refreshToken");
     }
+    public Response getCategories(){
+        return BaseApi.get(Endpoints.GET_CATEGORIES);
+    }
 }
