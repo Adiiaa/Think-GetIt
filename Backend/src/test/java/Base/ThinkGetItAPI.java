@@ -71,4 +71,8 @@ public class ThinkGetItAPI {
      payload.put("newPassword", newPassword);
      return BaseApi.put(Endpoints.CHANGE_PASSWORD,  payload, token);
     }
+
+    public Response getUserAddresses(String token){
+     return BaseApi.getWithToken(Endpoints.USER_ADDRESS, token);
+    }
 }
