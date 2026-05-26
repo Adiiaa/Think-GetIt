@@ -2,6 +2,7 @@ package tests.Users;
 
 import Base.ThinkGetItAPI;
 import io.restassured.response.Response;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -11,7 +12,7 @@ public class UpdateProfileTest {
     ThinkGetItAPI api = new ThinkGetItAPI();
     String validToken;
 
-    @Test
+    @BeforeMethod
     void getToken(){
         validToken = api.getToken("admin@thinkandgetit.com", "Admin@123456");
         System.out.println("Token: "+ validToken);
