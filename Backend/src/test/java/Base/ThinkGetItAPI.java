@@ -59,4 +59,6 @@ public class ThinkGetItAPI {
     public Response getCategories(){
         return BaseApi.get(Endpoints.GET_CATEGORIES);
     }
+
+
 }

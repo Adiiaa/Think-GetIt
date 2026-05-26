@@ -9,4 +9,5 @@ public class Endpoints {
     public static final String VERIFY_EMAIL = "/auth/verify-email/";
     public static final String RESET_PASSWORD = "/auth/reset-password/";
     public static final String GET_CATEGORIES = "/categories";
+
 }
