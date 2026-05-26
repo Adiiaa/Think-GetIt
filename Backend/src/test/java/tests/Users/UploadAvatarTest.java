@@ -33,4 +33,9 @@ public class UploadAvatarTest {
         assertEquals(response.statusCode(), 200);
         assertNull(response.jsonPath().getString("data.avatar"));
     }
+    @Test
+    void testUploadAvatarWithInvalidToken(){
+        Response response = api.uploadAvatar(validImagePath, "invalidToken123");
+        assertEquals(response.statusCode(), 401);
+    }
 }
