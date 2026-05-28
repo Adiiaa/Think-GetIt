@@ -56,4 +56,43 @@ public class ThinkGetItAPI {
     public String getRefreshToken(String email, String password){
      return login(email, password).jsonPath().getString("data.refreshToken");
     }
+
+    public Response updateProfile(String firstName, String lastName, String phone, String token){
+        Map<String, String> payload = new HashMap<>();
+        payload.put("firstName", firstName);
+        payload.put("lastName", lastName);
+        payload.put("phone", phone);
+        return BaseApi.put(Endpoints.UPDATE_PROFILE, payload, token);
+    }
+
+    public Response changePassword(String currentPassword, String newPassword, String token){
+     Map<String, String> payload = new HashMap<>();
+     payload.put("currentPassword", currentPassword);
+     payload.put("newPassword", newPassword);
+     return BaseApi.put(Endpoints.CHANGE_PASSWORD,  payload, token);
+    }
+
+    public Response getUserAddresses(String token){
+     return BaseApi.getWithToken(Endpoints.USER_ADDRESS, token);
+    }
+
+    public Response addAddress(String label, String firstName, String lastName, String phone, String street, String city,
+                               String state, String country, String postalCode, boolean isDefault, String token){
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("label", label);
+        payload.put("firstName", firstName);
+        payload.put("lastName", lastName);
+        payload.put("phone", phone);
+        payload.put("street", street);
+        payload.put("city", city);
+        payload.put("state", state);
+        payload.put("country", country);
+        payload.put("postalCode", postalCode);
+        payload.put("isDefault", isDefault);
+        return BaseApi.postWithToken(Endpoints.ADD_ADDRESS, payload, token);
+    }
+    public Response uploadAvatar(String filePath, String token){
+        return BaseApi.postMultipart(Endpoints.UPLOAD_AVATAR, filePath, token);
+    }
+
 }
