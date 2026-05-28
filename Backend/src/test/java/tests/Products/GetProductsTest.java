@@ -47,5 +47,11 @@ public class GetProductsTest {
         assertEquals(response.statusCode(), 200);
         assertNotNull(response.jsonPath().getList("data"));
     }
+    @Test
+    void testGetFeaturedProducts(){
+        Response response = api.getProductsWithFilters("featured=true");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+    }
 
 }
