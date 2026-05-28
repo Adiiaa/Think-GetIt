@@ -29,5 +29,10 @@ public class GetProductsTest {
         assertEquals(response.statusCode(), 200);
         assertNotNull(response.jsonPath().getList("data"));
     }
-
+    @Test
+    void testGetProductByPriceRange(){
+        Response response = api.getProductsWithFilters("minPrice=10&maxPrice=50");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+    }
 }
