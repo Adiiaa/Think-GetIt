@@ -2,17 +2,24 @@ package tests.Aunthentication;
 
 import Base.ThinkGetItAPI;
 import io.restassured.response.Response;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import util.TestUserFactory;
 
 import static org.testng.Assert.assertEquals;
 
 public class GetMeTest {
     ThinkGetItAPI api = new ThinkGetItAPI();
+    String validToken;
+
+    @BeforeMethod
+    void setUp(){
+        validToken = TestUserFactory.createUserAndGetToken();
+    }
 
     @Test
     void testGetCurrentUser(){
-        String token = api.getToken("admin@thinkandgetit.com", "Admin@123456");
-        Response response = api.getMe(token);
+        Response response = api.getMe(validToken);
         assertEquals(response.statusCode(), 200);
 
     }
