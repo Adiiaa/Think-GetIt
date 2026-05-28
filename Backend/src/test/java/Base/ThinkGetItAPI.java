@@ -60,5 +60,4 @@ public class ThinkGetItAPI {
         return BaseApi.get(Endpoints.GET_CATEGORIES);
     }
 
-
 }
