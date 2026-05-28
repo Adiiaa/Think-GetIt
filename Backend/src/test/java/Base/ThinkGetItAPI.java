@@ -94,5 +94,11 @@ public class ThinkGetItAPI {
     public Response uploadAvatar(String filePath, String token){
         return BaseApi.postMultipart(Endpoints.UPLOAD_AVATAR, filePath, token);
     }
+    public Response getProducts(){
+     return BaseApi.get(Endpoints.GET_PRODUCTS);
+    }
+    public Response getProductsWithFilters(String queryParams){
+     return BaseApi.get(Endpoints.GET_PRODUCTS + "?" + queryParams);
+    }
 
 }
