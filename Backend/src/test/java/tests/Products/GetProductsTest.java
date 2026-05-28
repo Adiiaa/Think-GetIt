@@ -23,5 +23,11 @@ public class GetProductsTest {
         assertNotNull(response.jsonPath().get("pagination.total"));
         assertNotNull(response.jsonPath().get("pagination.page"));
     }
+    @Test
+    void testGetProductByCategory(){
+        Response response = api.getProductsWithFilters("category=electronics");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+    }
 
 }
