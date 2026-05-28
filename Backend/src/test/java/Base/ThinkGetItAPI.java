@@ -99,4 +99,12 @@ public class ThinkGetItAPI {
         return BaseApi.postMultipart(Endpoints.UPLOAD_AVATAR, filePath, token);
     }
 
+    public Response createCategory(String name, String slug, String description, String token){
+        Map<String, String> payload = new HashMap<>();
+        payload.put("name", name);
+        payload.put("slug", slug);
+        payload.put("description", description);
+        return BaseApi.postWithToken(Endpoints.CREATE_CATEGORY, payload, token);
+    }
+
 }

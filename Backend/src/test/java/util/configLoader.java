@@ -18,4 +18,10 @@ public class configLoader {
     public static String getBaseUrl() {
         return properties.getProperty("base.url");
     }
+    public static String getAdminEmail(){
+        return properties.getProperty("admin.email");
+    }
+    public static String getAdminPassword(){
+        return properties.getProperty("admin.password");
+    }
 }
