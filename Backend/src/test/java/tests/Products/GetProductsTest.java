@@ -53,5 +53,11 @@ public class GetProductsTest {
         assertEquals(response.statusCode(), 200);
         assertNotNull(response.jsonPath().getList("data"));
     }
+    @Test
+    void testGetFlashSaleProducts(){
+        Response response = api.getProductsWithFilters("flash_sale=true");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+    }
 
 }
