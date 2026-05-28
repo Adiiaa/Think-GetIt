@@ -35,4 +35,11 @@ public class GetProductsTest {
         assertEquals(response.statusCode(), 200);
         assertNotNull(response.jsonPath().getList("data"));
     }
+    @Test
+    void testGetProductsSortedByPriceAsc(){
+        Response response = api.getProductsWithFilters("sort=price_asc");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+    }
+
 }
