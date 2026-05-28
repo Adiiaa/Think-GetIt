@@ -7,6 +7,7 @@ on:
       - dev
       - ft/backend-Auth
       - ft/backend-Users
+      - ft/backend-categories
 
 
   pull_request:
