@@ -106,5 +106,8 @@ public class ThinkGetItAPI {
         payload.put("description", description);
         return BaseApi.postWithToken(Endpoints.CREATE_CATEGORY, payload, token);
     }
+    public Response getCategoryBySlug(String slug){
+     return BaseApi.get(Endpoints.GET_CATEGORY_BY_SLUG  + slug);
+    }
 
 }
