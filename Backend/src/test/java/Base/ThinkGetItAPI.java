@@ -103,4 +103,7 @@ public class ThinkGetItAPI {
     public Response getTrendingProducts(){
         return BaseApi.get(Endpoints.GET_TRENDING_PRODUCTS);
     }
+    public Response getFlashSalesProducts(){
+     return BaseApi.get(Endpoints.GET_FLASH_SALES_PRODUCTS);
+    }
 }

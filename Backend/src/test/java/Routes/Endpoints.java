@@ -15,6 +15,7 @@ public class Endpoints {
     public static final String UPLOAD_AVATAR = "/users/avatar";
     public static final String GET_PRODUCTS = "/products";
     public static final String GET_TRENDING_PRODUCTS = "/products/trending";
+    public static final String GET_FLASH_SALES_PRODUCTS = "/products/flash-sales";
 
 
 }
