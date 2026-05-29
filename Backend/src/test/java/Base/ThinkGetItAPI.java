@@ -100,5 +100,7 @@ public class ThinkGetItAPI {
     public Response getProductsWithFilters(String queryParams){
      return BaseApi.get(Endpoints.GET_PRODUCTS + "?" + queryParams);
     }
-
+    public Response getTrendingProducts(){
+        return BaseApi.get(Endpoints.GET_TRENDING_PRODUCTS);
+    }
 }
