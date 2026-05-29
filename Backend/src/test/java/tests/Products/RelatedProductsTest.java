@@ -27,6 +27,11 @@ public class RelatedProductsTest {
     void testGetRelatedProductsWithInvalidId(){
         Response response = api.getRelatedProducts("invalidId");
         assertEquals(response.statusCode(), 404);
+    }
 
+    @Test
+    void testGetRelatedProductsWithEmptyId(){
+        Response response = api.getRelatedProducts("");
+        assertEquals(response.statusCode(), 404);
     }
 }
