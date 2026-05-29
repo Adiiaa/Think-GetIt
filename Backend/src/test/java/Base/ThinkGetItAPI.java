@@ -70,10 +70,10 @@ public class ThinkGetItAPI {
     }
 
     public Response changePassword(String currentPassword, String newPassword, String token){
-     Map<String, String> payload = new HashMap<>();
-     payload.put("currentPassword", currentPassword);
-     payload.put("newPassword", newPassword);
-     return BaseApi.put(Endpoints.CHANGE_PASSWORD,  payload, token);
+         Map<String, String> payload = new HashMap<>();
+         payload.put("currentPassword", currentPassword);
+         payload.put("newPassword", newPassword);
+         return BaseApi.put(Endpoints.CHANGE_PASSWORD,  payload, token);
     }
 
     public Response getUserAddresses(String token){
@@ -98,7 +98,6 @@ public class ThinkGetItAPI {
     public Response uploadAvatar(String filePath, String token){
         return BaseApi.postMultipart(Endpoints.UPLOAD_AVATAR, filePath, token);
     }
-
 
     public Response getCategoryBySlug(String slug){
      return BaseApi.get(Endpoints.GET_CATEGORY_BY_SLUG  + slug);
