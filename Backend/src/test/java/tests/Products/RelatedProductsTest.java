@@ -23,4 +23,10 @@ public class RelatedProductsTest {
         List<Object> products = response.jsonPath().getList("data");
         assertNotNull(products);
     }
+    @Test
+    void testGetRelatedProductsWithInvalidId(){
+        Response response = api.getRelatedProducts("invalidId");
+        assertEquals(response.statusCode(), 404);
+
+    }
 }
