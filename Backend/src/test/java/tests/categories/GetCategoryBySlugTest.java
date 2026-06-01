@@ -7,8 +7,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.*;
 
 public class GetCategoryBySlugTest {
     ThinkGetItAPI api = new ThinkGetItAPI();
@@ -34,12 +33,17 @@ public class GetCategoryBySlugTest {
         assertNotNull(slug);
 
         assertEquals(slug, existingSlug);
-
     }
 
     @Test
     void testCategoryByInvalidSlug(){
         Response response = api.getCategoryBySlug("fake-category-xyz");
         assertEquals(response.statusCode(), 404);
+    }
+    @Test
+    void testGetCategoryByEmptySlug(){
+        Response response = api.getCategoryBySlug("");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
     }
 }
