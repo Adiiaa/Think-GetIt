@@ -9,7 +9,6 @@ public class Endpoints {
     public static final String VERIFY_EMAIL = "/auth/verify-email/";
     public static final String RESET_PASSWORD = "/auth/reset-password/";
     public static final String GET_CATEGORIES = "/categories";
-
     public static final String UPDATE_PROFILE = "/users/profile";
     public static final String CHANGE_PASSWORD = "/users/change-password";
     public static final String USER_ADDRESS = "/users/addresses";
@@ -22,6 +21,7 @@ public class Endpoints {
     public static final String GET_CATEGORY_BY_SLUG = "/categories/";
     public static final String GET_CART = "/cart";
     public static final String CLEAR_CART = "/cart";
+    public static final String ADD_TO_CART = "/cart/items";
 
 
 }

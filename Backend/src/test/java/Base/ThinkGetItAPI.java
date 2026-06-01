@@ -132,4 +132,21 @@ public class ThinkGetItAPI {
     public Response clearCart(String token){
      return BaseApi.delete(Endpoints.CLEAR_CART, token);
     }
+    public Response addToCart(String productId, String variantId, int quantity, String token){
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("productId", productId);
+        payload.put("variantId", variantId);
+        payload.put("quantity", quantity);
+        return BaseApi.postWithToken(Endpoints.ADD_TO_CART, payload, token);
+    }
+
+    public String getFirstProductId(){
+        Response response = BaseApi.get(Endpoints.GET_PRODUCTS);
+        return response.jsonPath().getString("data[0].id");
+    }
+
+    public String getFirstVariantId(){
+        Response response = BaseApi.get(Endpoints.GET_PRODUCTS);
+        return response.jsonPath().getString("data[0].variants[0].id");
+    }
 }
