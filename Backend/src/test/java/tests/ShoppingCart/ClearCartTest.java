@@ -25,4 +25,10 @@ public class ClearCartTest {
         assertTrue(response.jsonPath().getBoolean("success"));
     }
 
+    @Test
+    void testClearCartWithNoToken(){
+        Response response = api.clearCart("");
+        assertEquals(response.statusCode(), 401);
+    }
+
 }
