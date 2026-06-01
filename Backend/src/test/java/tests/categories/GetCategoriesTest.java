@@ -4,6 +4,8 @@ import Base.ThinkGetItAPI;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 import static org.testng.Assert.*;
 
 public class GetCategoriesTest {
@@ -17,12 +19,15 @@ public class GetCategoriesTest {
         int size = response.jsonPath().getList("data").size();
         assertTrue(size>0);
 
-        String firstName = response.jsonPath().getString("data[0].name");
-        System.out.println("First category name: " + firstName);
-        assertNotNull(firstName);
+        List<String> allNames = response.jsonPath().getList("data.name");
+        List<String> allSlugs = response.jsonPath().getList("data.slug");
 
-        String firstSlug = response.jsonPath().getString("data[0].slug");
-        System.out.println("First category slug: " + firstSlug);
-        assertNotNull(firstSlug);
+        for(String name: allNames){
+            assertNotNull(name, "Category name should not be null");
+        }
+        for(String slug: allSlugs){
+            assertNotNull(slug,"Category slug should not be null");
+        }
+
     }
 }
