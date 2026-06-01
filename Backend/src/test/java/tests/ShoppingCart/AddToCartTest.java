@@ -33,4 +33,9 @@ public class AddToCartTest {
         Response response = api.addToCart("00000000-00000-000000-00000", variantId, 1, token);
         assertEquals(response.statusCode(), 404);
     }
+    @Test
+    void testAddToCartAsGuest(){
+        Response response = api.addToCartAsGuest(productId, variantId, 1, "guest-session-123");
+        assertEquals(response.statusCode(), 200);
+    }
 }

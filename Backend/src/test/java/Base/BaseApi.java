@@ -88,4 +88,14 @@ public class BaseApi {
                 .then().spec(getResponseSpec())
                 .extract().response();
     }
+    public static Response postWithSessionId(String endpoint, Object body, String sessionId){
+        return given(getRequestSpec())
+                .header("x-session-id", sessionId)
+                .body(body)
+                .when()
+                .post(endpoint)
+                .then().spec(getResponseSpec())
+                .extract()
+                .response();
+    }
 }

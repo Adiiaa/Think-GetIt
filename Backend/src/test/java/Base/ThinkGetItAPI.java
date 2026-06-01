@@ -153,4 +153,11 @@ public class ThinkGetItAPI {
         Response response = BaseApi.get(Endpoints.GET_PRODUCTS + slug);
         return response.jsonPath().getString("data[0].variants[0].id");
     }
+    public Response addToCartAsGuest(String productId, String variantId, int quantity, String sessionId){
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("productId", productId);
+        payload.put("variantId", variantId);
+        payload.put("quantity", quantity);
+        return BaseApi.postWithSessionId(Endpoints.ADD_TO_CART, payload, sessionId);
+    }
 }
