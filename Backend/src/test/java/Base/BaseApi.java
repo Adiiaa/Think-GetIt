@@ -80,4 +80,12 @@ public class BaseApi {
                 .extract()
                 .response();
     }
+    public static Response getWithSessionId(String endpoint, String sessionId){
+        return given(getRequestSpec())
+                .header("x-session-id", sessionId)
+                .when()
+                .get(endpoint)
+                .then().spec(getResponseSpec())
+                .extract().response();
+    }
 }

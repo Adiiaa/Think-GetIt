@@ -94,5 +94,16 @@ public class ThinkGetItAPI {
     public Response uploadAvatar(String filePath, String token){
         return BaseApi.postMultipart(Endpoints.UPLOAD_AVATAR, filePath, token);
     }
+    public Response getCart(String token){
+        return BaseApi.getWithToken(Endpoints.GET_CART, token);
+    }
+
+    public Response getCartAsGuest(String sessionId){
+        return BaseApi.getWithSessionId(Endpoints.GET_CART, sessionId);
+    }
+
+    public Response getCartWithNoAuth(){
+        return BaseApi.get(Endpoints.GET_CART);
+    }
 
 }
