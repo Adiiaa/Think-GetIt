@@ -22,6 +22,7 @@ public class VerifyEmailTest {
         Response response = api.verifyEmail("abc123xyz456def789");
         assertEquals(response.statusCode(), 400);
     }
+
     @Test
     void testVerifyEmailWithWrongFormatToken() {
         Response response = api.verifyEmail("00000000-0000-0000-0000-000000000000");

@@ -3,6 +3,7 @@ package tests.Aunthentication;
 import Base.ThinkGetItAPI;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
+import util.configLoader;
 
 import static org.testng.Assert.assertEquals;
 
@@ -11,7 +12,7 @@ public class ForgotPasswordTest {
 
     @Test
     void testForgotPasswordWithValidEmail(){
-        Response response = api.forgotPassword("admin@thinkandgetit.com");
+        Response response = api.forgotPassword(configLoader.getAdminEmail());
         System.out.println("Status: " + response.statusCode());
         System.out.println("Body: " + response.getBody().asString());
         assertEquals(response.statusCode(), 200);
