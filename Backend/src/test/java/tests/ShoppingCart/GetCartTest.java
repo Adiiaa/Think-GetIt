@@ -22,4 +22,9 @@ public class GetCartTest {
         assertEquals(response.statusCode(), 200);
         assertNotNull(response.jsonPath().get("data"));
     }
+    @Test
+    void testGetCartAsGuestWithSessionId(){
+        Response response = api.getCartAsGuest("guest-session-123");
+        assertEquals(response.statusCode(), 200);
+    }
 }
