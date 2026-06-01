@@ -30,5 +30,10 @@ public class ClearCartTest {
         Response response = api.clearCart("");
         assertEquals(response.statusCode(), 401);
     }
+    @Test
+    void testClearCartWithInvalidToken(){
+        Response response = api.clearCart("invalidtoken123");
+        assertEquals(response.statusCode(), 401);
+    }
 
 }
