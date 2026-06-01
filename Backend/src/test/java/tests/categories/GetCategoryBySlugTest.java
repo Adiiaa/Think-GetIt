@@ -2,17 +2,28 @@ package tests.categories;
 
 import Base.ThinkGetItAPI;
 import io.restassured.response.Response;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
 public class GetCategoryBySlugTest {
     ThinkGetItAPI api = new ThinkGetItAPI();
+    String existingSlug;
+
+    @BeforeClass
+    void setUp(){
+        Response response = api.getCategories();
+        List<String> slugs = response.jsonPath().getList("data.slug");
+        existingSlug = slugs.get(0);
+    }
 
     @Test
     void testGetCategoryByValidSlug(){
-        Response response = api.getCategoryBySlug("electronics");
+        Response response = api.getCategoryBySlug(existingSlug);
         assertEquals(response.statusCode(), 200);
         assertNotNull(response.jsonPath().get("data"));
 
@@ -22,7 +33,7 @@ public class GetCategoryBySlugTest {
         String slug = response.jsonPath().getString("data.slug");
         assertNotNull(slug);
 
-        assertEquals(slug, "electronics");
+        assertEquals(slug, existingSlug);
 
     }
 

@@ -12,7 +12,7 @@ public class GetCategoriesTest {
     ThinkGetItAPI api = new ThinkGetItAPI();
 
     @Test
-    void testGeTAllCategories(){
+    void testGetAllCategories(){
         Response response = api.getCategories();
         assertEquals(response.statusCode(), 200);
         assertNotNull(response.jsonPath().get("data"));
