@@ -109,5 +109,4 @@ public class ThinkGetItAPI {
     public Response clearCart(String token){
      return BaseApi.delete(Endpoints.CLEAR_CART, token);
     }
-
 }
