@@ -32,4 +32,9 @@ public class GetCartTest {
         Response response = api.getCartWithNoAuth();
         assertEquals(response.statusCode(), 200);
     }
+    @Test
+    void testGetCartWithInvalidToken(){
+        Response response = api.getCart("invalidtoken123");
+        assertEquals(response.statusCode(), 200);
+    }
 }
