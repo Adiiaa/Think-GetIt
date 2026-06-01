@@ -1,0 +1,63 @@
+package tests.Products;
+
+import Base.ThinkGetItAPI;
+import io.restassured.response.Response;
+import org.testng.annotations.Test;
+
+import static org.testng.Assert.*;
+
+public class GetProductsTest {
+    ThinkGetItAPI api = new ThinkGetItAPI();
+    @Test
+    void  testGetAllProducts(){
+        Response response = api.getProducts();
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+
+        int size = response.jsonPath().getList("data.products").size();
+        assertTrue(size>0);
+
+        assertNotNull(response.jsonPath().getString("data[0].name"));
+        assertNotNull(response.jsonPath().get("data[0].price"));
+        assertNotNull(response.jsonPath().get("pagination"));
+        assertNotNull(response.jsonPath().get("pagination.total"));
+        assertNotNull(response.jsonPath().get("pagination.page"));
+    }
+    @Test
+    void testGetProductByCategory(){
+        Response response = api.getProductsWithFilters("category=electronics");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+    }
+    @Test
+    void testGetProductByPriceRange(){
+        Response response = api.getProductsWithFilters("minPrice=10&maxPrice=50");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+    }
+    @Test
+    void testGetProductsSortedByPriceAsc(){
+        Response response = api.getProductsWithFilters("sort=price_asc");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+    }
+    @Test
+    void testGetProductsSortedByPriceDesc(){
+        Response response = api.getProductsWithFilters("sort=price_desc");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+    }
+    @Test
+    void testGetFeaturedProducts(){
+        Response response = api.getProductsWithFilters("featured=true");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+    }
+    @Test
+    void testGetFlashSaleProducts(){
+        Response response = api.getProductsWithFilters("flash_sale=true");
+        assertEquals(response.statusCode(), 200);
+        assertNotNull(response.jsonPath().getList("data"));
+    }
+
+}

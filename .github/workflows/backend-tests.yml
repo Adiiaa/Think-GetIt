@@ -8,6 +8,8 @@ on:
       - ft/backend-Auth
       - ft/backend-Users
       - ft/backend-shoppingCart
+      - ft/backend-categories
+      - ft/backend-products
 
 
   pull_request:

@@ -56,6 +56,10 @@ public class ThinkGetItAPI {
     public String getRefreshToken(String email, String password){
      return login(email, password).jsonPath().getString("data.refreshToken");
     }
+    public Response getCategories(){
+        return BaseApi.get(Endpoints.GET_CATEGORIES);
+    }
+
 
     public Response updateProfile(String firstName, String lastName, String phone, String token){
         Map<String, String> payload = new HashMap<>();
@@ -66,10 +70,10 @@ public class ThinkGetItAPI {
     }
 
     public Response changePassword(String currentPassword, String newPassword, String token){
-     Map<String, String> payload = new HashMap<>();
-     payload.put("currentPassword", currentPassword);
-     payload.put("newPassword", newPassword);
-     return BaseApi.put(Endpoints.CHANGE_PASSWORD,  payload, token);
+         Map<String, String> payload = new HashMap<>();
+         payload.put("currentPassword", currentPassword);
+         payload.put("newPassword", newPassword);
+         return BaseApi.put(Endpoints.CHANGE_PASSWORD,  payload, token);
     }
 
     public Response getUserAddresses(String token){
@@ -100,6 +104,25 @@ public class ThinkGetItAPI {
 
     public Response getCartAsGuest(String sessionId){
         return BaseApi.getWithSessionId(Endpoints.GET_CART, sessionId);
+    }
+    public Response getProducts(){
+     return BaseApi.get(Endpoints.GET_PRODUCTS);
+    }
+    public Response getProductsWithFilters(String queryParams){
+     return BaseApi.get(Endpoints.GET_PRODUCTS + "?" + queryParams);
+    }
+    public Response getTrendingProducts(){
+        return BaseApi.get(Endpoints.GET_TRENDING_PRODUCTS);
+    }
+    public Response getFlashSalesProducts(){
+     return BaseApi.get(Endpoints.GET_FLASH_SALES_PRODUCTS);
+    }
+    public Response getRelatedProducts(String productId){
+        return BaseApi.get(Endpoints.RELATED_PRODUCTS + productId + "/related");
+    }
+
+    public Response getCategoryBySlug(String slug){
+     return BaseApi.get(Endpoints.GET_CATEGORY_BY_SLUG  + slug);
     }
 
     public Response getCartWithNoAuth(){
