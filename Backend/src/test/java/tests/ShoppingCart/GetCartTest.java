@@ -27,4 +27,9 @@ public class GetCartTest {
         Response response = api.getCartAsGuest("guest-session-123");
         assertEquals(response.statusCode(), 200);
     }
+    @Test
+    void testGetCartWithNoAuth(){
+        Response response = api.getCartWithNoAuth();
+        assertEquals(response.statusCode(), 200);
+    }
 }
