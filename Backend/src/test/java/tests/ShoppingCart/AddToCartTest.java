@@ -20,12 +20,17 @@ public class AddToCartTest {
     void setUp(){
         token = TestUserFactory.createUserAndGetToken();
         productId = api.getFirstProductId();
-        variantId = api.getFirstVariantId();
+        String slug = api.getFirstProductSlug();
+        variantId = api.getFirstVariantId(slug);
     }
     @Test
     void testAddToCartWithValidData(){
         Response response = api.addToCart(productId, variantId, 1, token);
         assertEquals(response.statusCode(), 200);
     }
-
+    @Test
+    void testAddToCartWithInvalidProduct(){
+        Response response = api.addToCart("00000000-00000-000000-00000", variantId, 1, token);
+        assertEquals(response.statusCode(), 404);
+    }
 }

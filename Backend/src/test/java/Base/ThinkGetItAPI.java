@@ -144,9 +144,13 @@ public class ThinkGetItAPI {
         Response response = BaseApi.get(Endpoints.GET_PRODUCTS);
         return response.jsonPath().getString("data[0].id");
     }
-
-    public String getFirstVariantId(){
+    public String getFirstProductSlug(){
         Response response = BaseApi.get(Endpoints.GET_PRODUCTS);
+        return response.jsonPath().getString("data[0].slug");
+    }
+
+    public String getFirstVariantId(String slug){
+        Response response = BaseApi.get(Endpoints.GET_PRODUCTS + slug);
         return response.jsonPath().getString("data[0].variants[0].id");
     }
 }
