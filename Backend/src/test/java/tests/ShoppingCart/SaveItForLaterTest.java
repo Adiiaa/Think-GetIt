@@ -24,11 +24,15 @@ public class SaveItForLaterTest {
         api.addToCart(productId, variantId, 1, token);
         itemId = api.getFirstCartItemId(token);
     }
+    @Test
+    void testSaveItemForLaterSuccessfully(){
+        Response response = api.saveItemForLater(itemId, token);
+        assertEquals(response.statusCode(), 200);
+    }
 
     @Test
     void testSaveItemForLaterWithInvalidItemId() {
         Response response = api.saveItemForLater("invalid-item-id", token);
-
         assertEquals(response.statusCode(), 404);
     }
 }
