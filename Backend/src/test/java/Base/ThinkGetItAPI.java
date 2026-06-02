@@ -1,5 +1,6 @@
 package Base;
 
+import POJO.payload.CouponPayload;
 import Routes.Endpoints;
 import io.restassured.response.Response;
 
@@ -175,5 +176,9 @@ public class ThinkGetItAPI {
     }
     public Response saveItemForLater(String itemId, String token){
      return BaseApi.patch(Endpoints.CART_ITEMS + itemId + "/save-for-later", token);
+    }
+    public Response applyCoupon(String code, String token){
+        CouponPayload payload =  new CouponPayload(code);
+        return BaseApi.postCoupon(Endpoints.APPLY_COUPON, payload, token);
     }
 }

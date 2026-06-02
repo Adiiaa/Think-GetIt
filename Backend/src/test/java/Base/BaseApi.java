@@ -107,4 +107,13 @@ public class BaseApi {
                 .then().spec(getResponseSpec())
                 .extract().response();
     }
+    public static Response postCoupon(String endpoint, Object body, String token) {
+        return given(getRequestSpec())
+                .header("Authorization", "Bearer " + token)
+                .body(body)
+                .post(endpoint)
+                .then().spec(getResponseSpec())
+                .extract()
+                .response();
+    }
 }
