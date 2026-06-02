@@ -10,22 +10,11 @@ import java.beans.BeanProperty;
 
 import static org.testng.Assert.assertEquals;
 
-public class AddToCartTest {
-    ThinkGetItAPI api = new ThinkGetItAPI();
-    String token;
-    String productId;
-    String variantId;
+public class AddToCartTest extends BaseShoppingCartTest {
 
-    @BeforeClass
-    void setUp(){
-        token = TestUserFactory.createUserAndGetToken();
-        productId = api.getFirstProductId();
-        String slug = api.getFirstProductSlug();
-        variantId = api.getFirstVariantId(slug);
-    }
     @Test
     void testAddToCartWithValidData(){
-        Response response = api.addToCart(productId, variantId, 1, token);
+        Response response = api.addToCart(productId, variantId, 2, token);
         assertEquals(response.statusCode(), 200);
     }
     @Test
