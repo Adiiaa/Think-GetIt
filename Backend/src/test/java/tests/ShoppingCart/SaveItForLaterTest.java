@@ -11,7 +11,7 @@ import static org.testng.Assert.assertEquals;
 public class SaveItForLaterTest extends BaseShoppingCartTest {
     @Test
     void testSaveItemForLaterSuccessfully(){
-        Response response = api.saveItemForLater(itemId, token);
+        Response response = api.saveItemForLater(cartItemId, token);
         assertEquals(response.statusCode(), 200);
     }
 

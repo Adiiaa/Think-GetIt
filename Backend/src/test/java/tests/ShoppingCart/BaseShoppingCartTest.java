@@ -10,7 +10,6 @@ public class BaseShoppingCartTest {
     protected String productId;
     protected String variantId;
     protected String cartItemId;
-    protected String itemId;
 
     @BeforeClass
     void setUp() {
@@ -21,6 +20,5 @@ public class BaseShoppingCartTest {
         variantId = api.getFirstVariantId(slug);
         api.addToCart(productId, variantId, 1, token);
         cartItemId = api.getFirstCartItemId(token);
-        System.out.println("Cart Item ID = " + cartItemId);
     }
 }
