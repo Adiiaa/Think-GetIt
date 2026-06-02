@@ -1,14 +1,11 @@
 package tests.ShoppingCart;
 
-import Base.ThinkGetItAPI;
 import io.restassured.response.Response;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import util.TestUserFactory;
 
 import static org.testng.Assert.assertEquals;
 
-public class updateCartItemTest extends BaseShoppingCartTest {
+public class UpdateCartItemTest extends BaseShoppingCartTest {
 
     @Test
     void testUpdateQuantitySuccessfully(){
