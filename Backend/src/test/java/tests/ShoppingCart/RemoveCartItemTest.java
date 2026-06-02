@@ -8,22 +8,8 @@ import util.TestUserFactory;
 
 import static org.testng.Assert.assertEquals;
 
-public class RemoveCartItemTest {
-    ThinkGetItAPI api = new ThinkGetItAPI();
-    String token;
-    String productId;
-    String variantId;
-    String cartItemId;
+public class RemoveCartItemTest extends BaseShoppingCartTest{
 
-    @BeforeClass
-    void setUp(){
-        token = TestUserFactory.createUserAndGetToken();
-        productId = api.getFirstProductId();
-        String slug = api.getFirstProductSlug();
-        variantId = api.getFirstVariantId(slug);
-        api.addToCart(productId, variantId, 1, token);
-        cartItemId = api.getFirstCartItemId(token);
-    }
     @Test
         void testRemoveCartItemSuccessfully(){
             Response response = api.removeCartItem(cartItemId, token);
