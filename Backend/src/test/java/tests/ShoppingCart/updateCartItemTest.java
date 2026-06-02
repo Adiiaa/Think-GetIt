@@ -8,25 +8,7 @@ import util.TestUserFactory;
 
 import static org.testng.Assert.assertEquals;
 
-public class updateCartItemTest {
-
-    ThinkGetItAPI api = new ThinkGetItAPI();
-    String token;
-    String productId;
-    String variantId;
-    String cartItemId;
-
-    @BeforeClass
-    void setUp() {
-
-        token = TestUserFactory.createUserAndGetToken();
-        productId = api.getFirstProductId();
-        String slug = api.getFirstProductSlug();
-        variantId = api.getFirstVariantId(slug);
-        api.addToCart(productId, variantId, 1, token);
-        cartItemId = api.getFirstCartItemId(token);
-        System.out.println("Cart Item ID = " + cartItemId);
-    }
+public class updateCartItemTest extends BaseShoppingCartTest {
 
     @Test
     void testUpdateQuantitySuccessfully(){
