@@ -1,12 +1,7 @@
 package tests.ShoppingCart;
 
-import Base.ThinkGetItAPI;
 import io.restassured.response.Response;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import util.TestUserFactory;
-
-import java.beans.BeanProperty;
 
 import static org.testng.Assert.assertEquals;
 
