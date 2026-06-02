@@ -160,4 +160,14 @@ public class ThinkGetItAPI {
         payload.put("quantity", quantity);
         return BaseApi.postWithSessionId(Endpoints.ADD_TO_CART, payload, sessionId);
     }
+
+    public Response updateCartItem(String itemId, int quantity, String token){
+         Map<String, Object> payload = new HashMap<>();
+         payload.put("quantity", quantity);
+         return BaseApi.put(Endpoints.UPDATE_CART_ITEM + itemId, payload, token);
+    }
+    public String getFirstCartItemId(String token){
+         Response response = getCart(token);
+         return response.jsonPath().getString("data.items[0].id");
+    }
 }
