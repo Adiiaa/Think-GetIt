@@ -23,7 +23,6 @@ public class updateCartItemTest {
         productId = api.getFirstProductId();
         String slug = api.getFirstProductSlug();
         variantId = api.getFirstVariantId(slug);
-
         api.addToCart(productId, variantId, 1, token);
         cartItemId = api.getFirstCartItemId(token);
         System.out.println("Cart Item ID = " + cartItemId);
