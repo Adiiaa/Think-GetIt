@@ -10,6 +10,7 @@ public class BaseShoppingCartTest {
     protected String productId;
     protected String variantId;
     protected String cartItemId;
+    protected String itemId;
 
     @BeforeClass
     void setUp() {
