@@ -34,4 +34,10 @@ public class updateCartItemTest {
         Response response = api.updateCartItem(cartItemId, 3, token);
         assertEquals(response.statusCode(), 200);
     }
+
+    @Test
+    void testUpdateQuantityToZeroRemovesItem(){
+        Response response = api.updateCartItem(cartItemId, 0, token);
+        assertEquals(response.statusCode(), 200);
+    }
 }
