@@ -1,5 +1,6 @@
 package Base;
 
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 import static Base.specBuilder.getRequestSpec;
@@ -97,5 +98,13 @@ public class BaseApi {
                 .then().spec(getResponseSpec())
                 .extract()
                 .response();
+    }
+    public static Response patch(String endpoint, String token){
+        return given(getRequestSpec())
+                .header("Authorization", "Bearer" + token)
+                .when()
+                .patch(endpoint)
+                .then().spec(getResponseSpec())
+                .extract().response();
     }
 }

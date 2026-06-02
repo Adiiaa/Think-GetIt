@@ -173,4 +173,7 @@ public class ThinkGetItAPI {
     public Response removeCartItem(String itemId, String token){
      return BaseApi.delete(Endpoints.REMOVE_CART_ITEM + itemId, token);
     }
+    public Response saveItemForLater(String itemId, String token){
+     return BaseApi.patch(Endpoints.CART_ITEMS + "/" + itemId + "/save-for-later", token);
+    }
 }
