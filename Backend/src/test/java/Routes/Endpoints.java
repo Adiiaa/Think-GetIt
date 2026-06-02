@@ -23,6 +23,7 @@ public class Endpoints {
     public static final String CLEAR_CART = "/cart";
     public static final String ADD_TO_CART = "/cart/items";
     public static final String UPDATE_CART_ITEM = "/cart/items/";
+    public static final String REMOVE_CART_ITEM = "/cart/items/";
 
 
 }

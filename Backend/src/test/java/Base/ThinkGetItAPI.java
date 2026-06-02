@@ -170,4 +170,7 @@ public class ThinkGetItAPI {
          Response response = getCart(token);
          return response.jsonPath().getString("data.items[0].id");
     }
+    public Response removeCartItem(String itemId, String token){
+     return BaseApi.delete(Endpoints.REMOVE_CART_ITEM + itemId, token);
+    }
 }
