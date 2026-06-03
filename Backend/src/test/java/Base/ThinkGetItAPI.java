@@ -205,4 +205,7 @@ public class ThinkGetItAPI {
     public Response getOrderById(String orderId, String token) {
             return BaseApi.getWithToken(Endpoints.GET_ORDER_BY_ID + "/" + orderId, token);
     }
+    public Response cancelOrder(String orderId, String token){
+        return BaseApi.patch(Endpoints.CANCEL_ORDERS + "/" + orderId + "/cancel", token);
+    }
 }
