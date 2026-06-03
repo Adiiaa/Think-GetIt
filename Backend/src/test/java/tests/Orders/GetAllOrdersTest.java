@@ -22,9 +22,13 @@ public class GetAllOrdersTest {
     void testGetAllOrdersSuccessfully() {
 
         Response response = api.getAllOrdersAdmin(adminToken);
-
         assertEquals(response.statusCode(), 200);
-
         assertNotNull(response.jsonPath().get("data"));
+    }
+    @Test
+    void testGetAllOrdersWithInvalidToken() {
+
+        Response response = api.getAllOrdersAdmin("invalid-token");
+        assertEquals(response.statusCode(), 401);
     }
 }
