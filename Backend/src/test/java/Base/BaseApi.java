@@ -156,4 +156,19 @@ public class BaseApi {
                         .response()
         );
     }
+    public static Response postMultipartWithCustomField(String endpoint, String filePath,
+                                                        String fieldName, String orderId, String token) {
+        return RateLimitHandler.executeWithRetry(() ->
+                given(getRequestSpec())
+                        .header("Authorization", "Bearer " + token)
+                        .contentType("multipart/form-data")
+                        .pathParam("id", orderId)
+                        .multiPart(fieldName, new java.io.File(filePath))
+                        .when()
+                        .post(endpoint)
+                        .then().spec(getResponseSpec())
+                        .extract()
+                        .response()
+        );
+    }
 }

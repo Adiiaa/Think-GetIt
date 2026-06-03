@@ -216,4 +216,7 @@ public class ThinkGetItAPI {
         return BaseApi.patch(
                 Endpoints.RETURN_ORDER + "/" + orderId + "/return", payload, token);
     }
+    public Response uploadPaymentProof(String orderId, String filePath, String token){
+      return BaseApi.postMultipartWithCustomField(Endpoints.UPLOAD_PAYMENT_PROOF, filePath, "proof", orderId, token);
+    }
 }
