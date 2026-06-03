@@ -202,4 +202,7 @@ public class ThinkGetItAPI {
         }
         return BaseApi.getWithToken(url, token);
     }
+    public Response getOrderById(String orderId, String token) {
+            return BaseApi.getWithToken(Endpoints.GET_ORDER_BY_ID + "/" + orderId, token);
+    }
 }
