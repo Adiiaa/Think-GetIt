@@ -1,6 +1,7 @@
 package Base;
 
 import POJO.payload.CouponPayload;
+import POJO.payload.ReturnOrderPayload;
 import Routes.Endpoints;
 import io.restassured.response.Response;
 
@@ -207,5 +208,12 @@ public class ThinkGetItAPI {
     }
     public Response cancelOrder(String orderId, String token){
         return BaseApi.patch(Endpoints.CANCEL_ORDERS + "/" + orderId + "/cancel", token);
+    }
+    public Response requestReturn(String orderId, String reason, String token) {
+
+        ReturnOrderPayload payload = new ReturnOrderPayload(reason);
+
+        return BaseApi.patch(
+                Endpoints.RETURN_ORDER + "/" + orderId + "/return", payload, token);
     }
 }

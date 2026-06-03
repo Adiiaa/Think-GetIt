@@ -30,4 +30,5 @@ public class Endpoints {
     public static final String GET_ORDERS = "/orders";
     public static final String GET_ORDER_BY_ID = "/orders";
     public static final String CANCEL_ORDERS = "/orders";
+    public static final String RETURN_ORDER = "/orders";
 }

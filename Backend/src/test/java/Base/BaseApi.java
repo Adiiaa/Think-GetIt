@@ -143,4 +143,17 @@ public class BaseApi {
                         .response()
         );
     }
+    public static Response patch(String endpoint, Object payload, String token) {
+        return RateLimitHandler.executeWithRetry(() ->
+                given(getRequestSpec())
+                        .header("Authorization", "Bearer " + token)
+                        .body(payload)
+                        .when()
+                        .patch(endpoint)
+                        .then()
+                        .spec(getResponseSpec())
+                        .extract()
+                        .response()
+        );
+    }
 }
