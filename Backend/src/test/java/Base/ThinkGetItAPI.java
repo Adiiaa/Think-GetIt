@@ -219,4 +219,7 @@ public class ThinkGetItAPI {
     public Response uploadPaymentProof(String orderId, String filePath, String token){
       return BaseApi.postMultipartWithCustomField(Endpoints.UPLOAD_PAYMENT_PROOF, filePath, "proof", orderId, token);
     }
+    public Response getAllOrdersAdmin(String token){
+     return BaseApi.getWithToken(Endpoints.GET_ALL_ORDERS_ADMIN, token);
+    }
 }
