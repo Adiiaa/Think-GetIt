@@ -189,5 +189,17 @@ public class ThinkGetItAPI {
         payload.put("shippingFee", shippingFee);
         return BaseApi.postWithToken(Endpoints.PLACE_ORDER, payload, token);
     }
+    public Response getOrders(String token) {
+        return BaseApi.getWithToken(Endpoints.GET_ORDERS, token);
+    }
 
+    public Response getOrdersWithParams(String token, Integer page, String status) {
+        String url = Endpoints.GET_ORDERS;
+        if (page != null || status != null) {
+            url += "?";
+            if (page != null) url += "page=" + page;
+            if (status != null) url += (page != null ? "&" : "") + "status=" + status;
+        }
+        return BaseApi.getWithToken(url, token);
+    }
 }

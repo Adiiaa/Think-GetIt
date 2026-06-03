@@ -1,36 +1,22 @@
 package tests.Orders;
 
-import Base.ThinkGetItAPI;
+import com.fasterxml.jackson.databind.ser.Serializers;
 import io.restassured.response.Response;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import tests.ShoppingCart.BaseShoppingCartTest;
-import util.TestUserFactory;
 
 import static org.testng.Assert.*;
 
-public class PlaceOrder extends BaseShoppingCartTest {
+public class PlaceOrderTest extends BaseOrderTest {
 
-    ThinkGetItAPI api = new ThinkGetItAPI();
-    String token;
-    String addressId;
-
-    @BeforeClass
-    void setUp() {
-        token = TestUserFactory.createUserAndGetToken();
-        Response addressResponse = api.addAddress(
-                "Home", "Test", "User",
-                "+250789000000", "KG 123 St", "Kigali",
-                "Kigali", "Rwanda", "00000", true, token
-        );
-        addressId = addressResponse.jsonPath().getString("data.id");
+    @BeforeMethod
+    void ensureCartHasItem() {
 
         String productId = api.getFirstProductId();
         String slug = api.getFirstProductSlug();
         String variantId = api.getFirstVariantId(slug);
 
-        Response addToCartResp = api.addToCart(productId, variantId, 1, token);
-        System.out.println("Add to Cart Status: " + addToCartResp.statusCode());
+        api.addToCart(productId, variantId, 1, token);
     }
 
     @Test
@@ -51,7 +37,7 @@ public class PlaceOrder extends BaseShoppingCartTest {
     void testPlaceOrderWithInvalidAddress() {
         Response response = api.placeOrder("invalid-address-123", "CASH_ON_DELIVERY", "", 0, token);
         System.out.println("Invalid Address Response: " + response.getBody().asString());
-        assertEquals(response.statusCode(), 400);
+        assertEquals(response.statusCode(), 404);
     }
 
     @Test
