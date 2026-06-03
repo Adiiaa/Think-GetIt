@@ -19,4 +19,9 @@ public class GetOrderByIdTest extends BaseOrderTest{
         Response response = api.getOrderById("00000-0000000-00000000", token);
         assertEquals(response.statusCode(), 404);
     }
+    @Test
+    void testGetOrderWithoutToken(){
+        Response response = api.getOrderById(orderId, "");
+        assertEquals(response.statusCode(), 401);
+    }
 }
