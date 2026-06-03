@@ -26,6 +26,6 @@ public class Endpoints {
     public static final String REMOVE_CART_ITEM = "/cart/items/";
     public static final String CART_ITEMS = "/cart/items/";
     public static final String APPLY_COUPON = "/cart/coupon";
-
+    public static final String PLACE_ORDER = "/orders";
 
 }

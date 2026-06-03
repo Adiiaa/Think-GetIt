@@ -181,4 +181,13 @@ public class ThinkGetItAPI {
         CouponPayload payload =  new CouponPayload(code);
         return BaseApi.postCoupon(Endpoints.APPLY_COUPON, payload, token);
     }
+    public Response placeOrder(String addressId, String paymentMethod, String notes, double shippingFee, String token){
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("addressId", addressId);
+        payload.put("paymentMethod", paymentMethod);
+        payload.put("notes", notes);
+        payload.put("shippingFee", shippingFee);
+        return BaseApi.postWithToken(Endpoints.PLACE_ORDER, payload, token);
+    }
+
 }
