@@ -11,4 +11,10 @@ public class CancelingOrderTest extends BaseOrderTest {
         Response response = api.cancelOrder(orderId, token);
         assertEquals(response.statusCode(), 200);
     }
+    @Test
+    void testCancelOrderWIthInvalidOrderId(){
+        Response response = api.cancelOrder("0000000-0000000-0000000", token);
+        assertEquals(response.statusCode(), 404);
+    }
+
 }
