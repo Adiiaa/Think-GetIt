@@ -14,4 +14,9 @@ public class GetOrderByIdTest extends BaseOrderTest{
         assertNotNull(response.jsonPath().get("data"));
         assertEquals(response.jsonPath().getString("data.id"), orderId);
     }
+    @Test
+    void testGetOrderWithInvalidId(){
+        Response response = api.getOrderById("00000-0000000-00000000", token);
+        assertEquals(response.statusCode(), 404);
+    }
 }
