@@ -31,4 +31,9 @@ public class SubmitReviewsTest {
         Response response = api.submitReview(productId, 0, "Bad rating", "Testing zero rating", token);
         assertEquals(response.statusCode(), 201);
     }
+    @Test
+    void testSubmitReviewWithInvalidToken(){
+        Response response = api.submitReview(productId, 5, "Great!", "Love it!", "invalidToken123");
+        assertEquals(response.statusCode(), 401);
+    }
 }
