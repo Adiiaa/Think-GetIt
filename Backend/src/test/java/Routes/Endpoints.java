@@ -27,6 +27,7 @@ public class Endpoints {
     public static final String CART_ITEMS = "/cart/items/";
     public static final String APPLY_COUPON = "/cart/coupon";
     public static final String GET_PRODUCT_REVIEWS = "/reviews/";
+    public static final String SUBMIT_REVIEW = "/reviews/";
 
 
 }

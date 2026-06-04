@@ -184,4 +184,11 @@ public class ThinkGetItAPI {
     public Response getReviews(String productId){
         return BaseApi.get(Endpoints.GET_PRODUCT_REVIEWS + productId);
     }
+    public Response submitReview(String productId, int rating, String title, String body, String token){
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("rating", rating);
+        payload.put("title", title);
+        payload.put("body", body);
+        return BaseApi.postWithToken(Endpoints.SUBMIT_REVIEW + productId, payload, token);
+    }
 }
