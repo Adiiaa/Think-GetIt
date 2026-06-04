@@ -27,4 +27,13 @@ public class GetReviewsTest {
         assertNotNull(response.jsonPath().get("pagination"));
     }
 
+
+    @Test
+    void testGetReviewsWithInvalidProductId() {
+        Response response = api.getReviews("invalid-product-id");
+        assertEquals(response.statusCode(), 200);
+        assertEquals(response.jsonPath().getList("data").size(), 0);
+        assertEquals(response.jsonPath().getInt("pagination.totalReviews"), 0);
+    }
+
 }
