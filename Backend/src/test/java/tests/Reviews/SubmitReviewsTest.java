@@ -26,4 +26,9 @@ public class SubmitReviewsTest {
         assertEquals(response.statusCode(), 201);
         assertNotNull(response.jsonPath().get("data"));
     }
+    @Test
+    void testSubmitReviewWithZeroRating(){
+        Response response = api.submitReview(productId, 0, "Bad rating", "Testing zero rating", token);
+        assertEquals(response.statusCode(), 201);
+    }
 }
