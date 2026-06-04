@@ -33,4 +33,5 @@ public class Endpoints {
     public static final String RETURN_ORDER = "/orders";
     public static final String UPLOAD_PAYMENT_PROOF = "/orders/{id}/payment-proof";
     public static final String GET_ALL_ORDERS_ADMIN = "/orders/admin/all";
+    public static final String UPDATE_ORDER_STATUS = "/orders/admin";
 }

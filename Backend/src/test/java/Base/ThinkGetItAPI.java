@@ -2,6 +2,7 @@ package Base;
 
 import POJO.payload.CouponPayload;
 import POJO.payload.ReturnOrderPayload;
+import POJO.payload.UpdateOrderStatusPayload;
 import Routes.Endpoints;
 import io.restassured.response.Response;
 
@@ -221,5 +222,18 @@ public class ThinkGetItAPI {
     }
     public Response getAllOrdersAdmin(String token){
      return BaseApi.getWithToken(Endpoints.GET_ALL_ORDERS_ADMIN, token);
+    }
+    public Response updateOrderStatus(
+            String orderId,
+            String status,
+            String message,
+            String trackingNumber,
+            String adminToken) {
+
+        UpdateOrderStatusPayload payload = new UpdateOrderStatusPayload(status, message, trackingNumber);
+
+        return BaseApi.patch(
+                Endpoints.UPDATE_ORDER_STATUS
+                        + "/" + orderId + "/status", payload, adminToken);
     }
 }
