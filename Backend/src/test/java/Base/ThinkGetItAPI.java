@@ -181,4 +181,7 @@ public class ThinkGetItAPI {
         CouponPayload payload =  new CouponPayload(code);
         return BaseApi.postCoupon(Endpoints.APPLY_COUPON, payload, token);
     }
+    public Response getReviews(String productId){
+        return BaseApi.get(Endpoints.GET_PRODUCT_REVIEWS + productId);
+    }
 }
