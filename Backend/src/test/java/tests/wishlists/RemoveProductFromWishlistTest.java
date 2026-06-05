@@ -34,4 +34,10 @@ public class RemoveProductFromWishlistTest {
         Response response = api.removeFromWishlist("00000-00000-000000-000", token);
         assertEquals(response.statusCode(), 404);
     }
+    @Test
+    void testRemoveFromWishlistWithInvalidToken(){
+        Response response = api.removeFromWishlist(productId, "invalidToken123");
+        assertEquals(response.statusCode(), 401);
+    }
+
 }
