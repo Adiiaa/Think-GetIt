@@ -28,5 +28,6 @@ public class Endpoints {
     public static final String APPLY_COUPON = "/cart/coupon";
     public static final String GET_WISHLIST = "/wishlist";
     public static final String ADD_TO_WISHLIST = "/wishlist/";
+    public static final String REMOVE_FROM_WISHLIST = "/wishlist/";
 
 }
