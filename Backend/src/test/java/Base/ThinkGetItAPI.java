@@ -184,4 +184,7 @@ public class ThinkGetItAPI {
     public Response getWishlist(String token){
         return BaseApi.getWithToken(Endpoints.GET_WISHLIST, token);
     }
+    public Response addToWishlist(String productId, String token){
+     return BaseApi.postWithToken(Endpoints.ADD_TO_WISHLIST + productId, new HashMap<>(), token);
+    }
 }
