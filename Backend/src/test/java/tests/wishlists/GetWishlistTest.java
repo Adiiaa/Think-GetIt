@@ -1,4 +1,4 @@
-package tests.Reviews;
+package tests.wishlists;
 
 import Base.ThinkGetItAPI;
 import io.restassured.response.Response;
