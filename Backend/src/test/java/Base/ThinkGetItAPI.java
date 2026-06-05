@@ -181,4 +181,7 @@ public class ThinkGetItAPI {
         CouponPayload payload =  new CouponPayload(code);
         return BaseApi.postCoupon(Endpoints.APPLY_COUPON, payload, token);
     }
+    public Response getWishlist(String token){
+        return BaseApi.getWithToken(Endpoints.GET_WISHLIST, token);
+    }
 }
