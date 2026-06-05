@@ -22,4 +22,9 @@ public class GetWishlistTest {
         Response response = api.getWishlist(token);
         assertEquals(response.statusCode(), 200);
     }
+    @Test
+    void testGetWithlistWithNoToken(){
+        Response response = api.getWishlist("");
+        assertEquals(response.statusCode(), 401);
+    }
 }
