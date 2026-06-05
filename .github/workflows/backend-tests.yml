@@ -10,6 +10,7 @@ on:
       - ft/backend-shoppingCart
       - ft/backend-categories
       - ft/backend-products
+      - ft/backend-wishlist
 
 
   pull_request:
