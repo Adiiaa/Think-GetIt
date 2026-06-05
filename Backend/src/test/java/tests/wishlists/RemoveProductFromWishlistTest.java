@@ -24,4 +24,9 @@ public class RemoveProductFromWishlistTest {
         Response response = api.removeFromWishlist(productId, token);
         assertEquals(response.statusCode(), 200);
     }
+    @Test(dependsOnMethods = "testRemoveFromWishlistWithValidData")
+    void testRemoveAlreadyRemovedProductFromWishlist(){
+        Response response = api.removeFromWishlist(productId, token);
+        assertEquals(response.statusCode(), 404);
+    }
 }
