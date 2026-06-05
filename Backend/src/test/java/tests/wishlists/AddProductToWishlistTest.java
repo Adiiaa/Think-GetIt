@@ -33,6 +33,10 @@ public class AddProductToWishlistTest {
         Response response = api. addToWishlist("0000-0000-000", token);
         assertEquals(response.statusCode(), 401);
     }
-
+    @Test
+    void testAddToWishlistWithNoToken(){
+        Response response = api.addToWishlist(productId, "");
+        assertEquals(response.statusCode(), 401);
+    }
 
 }
