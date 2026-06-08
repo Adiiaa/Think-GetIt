@@ -16,4 +16,9 @@ public class SearchProductTest {
         assertEquals(response.statusCode(), 200);
         assertNotNull(response.jsonPath().get("data"));
     }
+    @Test
+    void testSearchWithNonExistingKeyword(){
+        Response response = api.searchProducts( "abcdefghxyz123", 1, 20, null, null, null, null);
+        assertEquals(response.statusCode(), 200);
+    }
 }
