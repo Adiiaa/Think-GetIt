@@ -26,7 +26,6 @@ public class Endpoints {
     public static final String REMOVE_CART_ITEM = "/cart/items/";
     public static final String CART_ITEMS = "/cart/items/";
     public static final String APPLY_COUPON = "/cart/coupon";
-<<<<<<< HEAD
     public static final String PLACE_ORDER = "/orders";
     public static final String GET_ORDERS = "/orders";
     public static final String GET_ORDER_BY_ID = "/orders";
@@ -35,10 +34,7 @@ public class Endpoints {
     public static final String UPLOAD_PAYMENT_PROOF = "/orders/{id}/payment-proof";
     public static final String GET_ALL_ORDERS_ADMIN = "/orders/admin/all";
     public static final String UPDATE_ORDER_STATUS = "/orders/admin";
-=======
     public static final String GET_PRODUCT_REVIEWS = "/reviews/";
     public static final String SUBMIT_REVIEW = "/reviews/";
 
-
->>>>>>> ft/backend-productReviews
 }
