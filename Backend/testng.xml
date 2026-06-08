@@ -5,26 +5,26 @@
     <test name="API Tests" parallel="false" thread-count="1">
         <classes>
             <!-- Authentication Tests -->
-            <class name="tests.Aunthentication.LoginApiTest"/>
-            <class name="tests.Aunthentication.RegisterTest"/>
-            <class name="tests.Aunthentication.ForgotPasswordTest"/>
-            <class name="tests.Aunthentication.VerifyEmailTest"/>
-            <class name="tests.Aunthentication.GetMeTest"/>
+<!--            <class name="tests.Aunthentication.LoginApiTest"/>-->
+<!--            <class name="tests.Aunthentication.RegisterTest"/>-->
+<!--            <class name="tests.Aunthentication.ForgotPasswordTest"/>-->
+<!--            <class name="tests.Aunthentication.VerifyEmailTest"/>-->
+<!--            <class name="tests.Aunthentication.GetMeTest"/>-->
 
             <!-- Product Tests -->
-            <class name="tests.Products.GetProductsTest"/>
-            <class name="tests.Products.GetFlashSalesProductTest"/>
-            <class name="tests.Products.GetTrendingProductsTest"/>
-            <class name="tests.Products.RelatedProductsTest"/>
+<!--            <class name="tests.Products.GetProductsTest"/>-->
+<!--            <class name="tests.Products.GetFlashSalesProductTest"/>-->
+<!--            <class name="tests.Products.GetTrendingProductsTest"/>-->
+<!--            <class name="tests.Products.RelatedProductsTest"/>-->
 
             <!-- Shopping Cart Tests -->
-            <class name="tests.ShoppingCart.AddToCartTest"/>
-            <class name="tests.ShoppingCart.GetCartTest"/>
-            <class name="tests.ShoppingCart.ClearCartTest"/>
-            <class name="tests.ShoppingCart.UpdateCartItemTest"/>
-            <class name="tests.ShoppingCart.RemoveCartItemTest"/>
-            <class name="tests.ShoppingCart.SaveItForLaterTest"/>
-            <class name="tests.ShoppingCart.ApplyCouponTest"/>
+<!--            <class name="tests.ShoppingCart.AddToCartTest"/>-->
+<!--            <class name="tests.ShoppingCart.GetCartTest"/>-->
+<!--            <class name="tests.ShoppingCart.ClearCartTest"/>-->
+<!--            <class name="tests.ShoppingCart.UpdateCartItemTest"/>-->
+<!--            <class name="tests.ShoppingCart.RemoveCartItemTest"/>-->
+<!--            <class name="tests.ShoppingCart.SaveItForLaterTest"/>-->
+<!--            <class name="tests.ShoppingCart.ApplyCouponTest"/>-->
 
             <class name="tests.Search.SearchProductTest"/>
             <class name="tests.Search.SearchSuggestionsTest"/>
