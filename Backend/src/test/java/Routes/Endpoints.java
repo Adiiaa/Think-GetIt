@@ -1,6 +1,7 @@
 package Routes;
 
 public class Endpoints {
+
     public static final String LOGIN = "/auth/login";
     public static final String REGISTER = "/auth/register";
     public static final String ME = "/auth/me";
@@ -36,5 +37,6 @@ public class Endpoints {
     public static final String UPDATE_ORDER_STATUS = "/orders/admin";
     public static final String GET_PRODUCT_REVIEWS = "/reviews/";
     public static final String SUBMIT_REVIEW = "/reviews/";
+    public static final String SEARCH_PRODUCTS = "/search";
 
 }

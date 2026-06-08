@@ -10,11 +10,9 @@ on:
       - ft/backend-shoppingCart
       - ft/backend-categories
       - ft/backend-products
-<<<<<<< HEAD
       - ft/backend-orders
-=======
       - ft/backend-productReviews
->>>>>>> ft/backend-productReviews
+      - ft/backend-search
 
 
   pull_request:

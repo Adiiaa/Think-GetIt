@@ -246,4 +246,29 @@ public class ThinkGetItAPI {
         payload.put("body", body);
         return BaseApi.postWithToken(Endpoints.SUBMIT_REVIEW + productId, payload, token);
     }
+
+    public Response searchProducts(String query, Integer page, Integer limit, String category, Double minPrice, Double maxPrice, String sort) {
+
+        StringBuilder endpoint = new StringBuilder(Endpoints.SEARCH_PRODUCTS + "?q=" + query);
+
+        if (page != null)
+            endpoint.append("&page=").append(page);
+
+        if (limit != null)
+            endpoint.append("&limit=").append(limit);
+
+        if (category != null)
+            endpoint.append("&category=").append(category);
+
+        if (minPrice != null)
+            endpoint.append("&minPrice=").append(minPrice);
+
+        if (maxPrice != null)
+            endpoint.append("&maxPrice=").append(maxPrice);
+
+        if (sort != null)
+            endpoint.append("&sort=").append(sort);
+
+        return BaseApi.get(endpoint.toString());
+    }
 }
