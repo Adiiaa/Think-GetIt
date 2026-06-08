@@ -271,4 +271,7 @@ public class ThinkGetItAPI {
 
         return BaseApi.get(endpoint.toString());
     }
+    public Response getSearchSuggestions(String query){
+        return BaseApi.get(Endpoints.SEARCH_SUGGESTIONS + "?q=" + query);
+    }
 }

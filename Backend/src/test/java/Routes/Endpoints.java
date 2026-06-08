@@ -38,5 +38,6 @@ public class Endpoints {
     public static final String GET_PRODUCT_REVIEWS = "/reviews/";
     public static final String SUBMIT_REVIEW = "/reviews/";
     public static final String SEARCH_PRODUCTS = "/search";
+    public static final String SEARCH_SUGGESTIONS = "/search/suggestions";
 
 }
