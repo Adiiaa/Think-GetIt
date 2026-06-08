@@ -39,5 +39,6 @@ public class Endpoints {
     public static final String SUBMIT_REVIEW = "/reviews/";
     public static final String SEARCH_PRODUCTS = "/search";
     public static final String SEARCH_SUGGESTIONS = "/search/suggestions";
+    public static final String TRENDING_SEARCHES = "/search/trending";
 
 }
