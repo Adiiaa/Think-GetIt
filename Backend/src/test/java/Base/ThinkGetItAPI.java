@@ -5,6 +5,7 @@ import Routes.Endpoints;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ThinkGetItAPI {
@@ -189,5 +190,36 @@ public class ThinkGetItAPI {
     }
     public Response removeFromWishlist(String productId, String token){
         return BaseApi.delete(Endpoints.REMOVE_FROM_WISHLIST + productId, token);
+    }
+
+    public Response moveWishlistItemToCart(String productID, String token){
+        return BaseApi.postWithToken(Endpoints.MOVE_WISHLIST_TO_CART + "/" + productID + "/move-to-cart", new HashMap<>(), token);
+    }
+    public String getFirstProductIdWithVariants(){
+     Response response = BaseApi.get(Endpoints.GET_PRODUCTS);
+     List<Map> products = response.jsonPath().getList("data");
+     for(Map product : products){
+         List variants = (List) product.get("variants");
+         if(variants != null && !variants.isEmpty()){
+             return (String) product.get("id");
+         }
+     }
+     return null;
+    }
+    public String getFirstProductSlugWithVariants(){
+        Response response = BaseApi.get(Endpoints.GET_PRODUCTS);
+        List<Map> products = response.jsonPath().getList("data");
+        for(Map product : products){
+            List variants = (List) product.get("variants");
+            if(variants != null && !variants.isEmpty()){
+                return (String) product.get("slug");
+            }
+        }
+        return null;
+    }
+    public String getVariantIdFromProduct(String slug){
+        Response response = BaseApi.get(Endpoints.GET_CATEGORY_BY_SLUG + slug);
+        System.out.println("Product details: " + response.getBody().asString());
+        return response.jsonPath().getString("data.variants[0].id");
     }
 }
