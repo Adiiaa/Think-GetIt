@@ -25,6 +25,9 @@
             <class name="tests.ShoppingCart.RemoveCartItemTest"/>
             <class name="tests.ShoppingCart.SaveItForLaterTest"/>
             <class name="tests.ShoppingCart.ApplyCouponTest"/>
+
+            <class name="tests.Search.SearchProductTest"/>
+            <class name="tests.Search.SearchSuggestionsTest"/>
         </classes>
     </test>
 
