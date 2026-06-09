@@ -12,6 +12,7 @@ on:
       - ft/backend-products
       - ft/backend-orders
       - ft/backend-productReviews
+      - ft/backend-Admin
 
 
   pull_request:
