@@ -25,5 +25,10 @@ public class GetDashboardTest {
         assertEquals(response.statusCode(), 200);
         assertNotNull(response.jsonPath().get("data"));
     }
+    @Test
+    void TestGetDashboardWithCustomerToken(){
+        Response response = api.getDashboard(customerToken);
+        assertEquals(response.statusCode(), 403);
+    }
 
 }
