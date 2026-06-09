@@ -30,4 +30,11 @@ public class CreateCouponTest {
         assertNotNull(response.jsonPath().get("data"));
         assertEquals(response.jsonPath().getString("data.code"), uniqueCode);
     }
+    @Test
+    void testCreateCouponAsCustomer(){
+        Response response = api.createCoupon("CUSTOMERCODE", "Test coupon",
+                "PERCENTAGE", 10.0, 50.0,
+                100, "2027-12-31T23:59:59.000Z", customerToken);
+        assertEquals(response.statusCode(), 403);
+    }
 }
