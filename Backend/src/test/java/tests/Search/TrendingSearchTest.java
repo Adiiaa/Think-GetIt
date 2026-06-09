@@ -7,7 +7,9 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class TrendingSearchTest {
+
     ThinkGetItAPI api = new ThinkGetItAPI();
+
     @Test
     void testGetTrendingSearches(){
         Response response = api.getTrendingSearches();
