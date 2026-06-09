@@ -26,4 +26,9 @@ public class GetAdminUsersTest {
         assertEquals(response.statusCode(), 200);
         assertNotNull(response.jsonPath().get("data"));
     }
+    @Test
+    void testGetAdminUsersWithCustomerToken(){
+        Response response = api.getAdminUsers(customerToken);
+        assertEquals(response.statusCode(), 403);
+    }
 }
