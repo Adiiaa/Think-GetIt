@@ -30,5 +30,10 @@ public class GetDashboardTest {
         Response response = api.getDashboard(customerToken);
         assertEquals(response.statusCode(), 403);
     }
+    @Test
+    void testGetDashboardWithInvalidToken(){
+        Response response = api.getDashboard("invalidToken123");
+        assertEquals(response.statusCode(), 401);
+    }
 
 }
