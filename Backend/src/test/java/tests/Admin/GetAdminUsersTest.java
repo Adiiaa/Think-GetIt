@@ -31,4 +31,9 @@ public class GetAdminUsersTest {
         Response response = api.getAdminUsers(customerToken);
         assertEquals(response.statusCode(), 403);
     }
+    @Test
+    void testGetAdminUsersWithInvalidToken(){
+        Response response = api.getAdminUsers("invalidToken");
+        assertEquals(response.statusCode(), 401);
+    }
 }
