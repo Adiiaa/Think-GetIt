@@ -38,5 +38,6 @@ public class Endpoints {
     public static final String SUBMIT_REVIEW = "/reviews/";
     public static final String GET_DASHBOARD = "/admin/dashboard";
     public static final String GET_ADMIN_USERS = "/admin/users";
+    public static final String CREATE_COUPON = "/admin/coupons";
 
 }

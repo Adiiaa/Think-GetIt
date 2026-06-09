@@ -252,4 +252,17 @@ public class ThinkGetItAPI {
     public Response getAdminUsers(String token){
      return BaseApi.getWithToken(Endpoints.GET_ADMIN_USERS, token);
     }
+    public Response createCoupon(String code, String description, String discountType,
+                                 double discountValue, double minOrderAmount,
+                                 int maxUses, String expiresAt, String token){
+        Map<String, Object> payload = new HashMap<>();
+        payload.put("code", code);
+        payload.put("description", description);
+        payload.put("discountType", discountType);
+        payload.put("discountValue", discountValue);
+        payload.put("minOrderAmount", minOrderAmount);
+        payload.put("maxUses", maxUses);
+        payload.put("expiresAt", expiresAt);
+        return BaseApi.postWithToken(Endpoints.CREATE_COUPON, payload, token);
+    }
 }
