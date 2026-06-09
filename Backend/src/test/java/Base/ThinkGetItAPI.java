@@ -249,4 +249,7 @@ public class ThinkGetItAPI {
     public Response getDashboard(String token){
      return BaseApi.getWithToken(Endpoints.GET_DASHBOARD, token);
     }
+    public Response getAdminUsers(String token){
+     return BaseApi.getWithToken(Endpoints.GET_ADMIN_USERS, token);
+    }
 }
