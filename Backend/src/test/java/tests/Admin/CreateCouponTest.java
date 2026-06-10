@@ -51,4 +51,11 @@ public class CreateCouponTest {
                 10.0, 50.0, 100, "2027-12-31T23:59:59.000Z",
                 "invalidtoken123");
     }
+    @Test
+    void testCreateCouponWithNoCode(){
+        Response response = api.createCoupon("", "Test coupon",
+                "PERCENTAGE", 10.0, 50.0,
+                100, "2027-12-31T23:59:59.000Z", adminToken);
+        assertEquals(response.statusCode(), 201);
+    }
 }
