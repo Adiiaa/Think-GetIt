@@ -246,4 +246,7 @@ public class ThinkGetItAPI {
         payload.put("body", body);
         return BaseApi.postWithToken(Endpoints.SUBMIT_REVIEW + productId, payload, token);
     }
+    public Response getBanners(){
+        return BaseApi.get(Endpoints.GET_BANNERS);
+    }
 }
