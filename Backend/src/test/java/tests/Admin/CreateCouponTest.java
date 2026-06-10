@@ -37,4 +37,11 @@ public class CreateCouponTest {
                 100, "2027-12-31T23:59:59.000Z", customerToken);
         assertEquals(response.statusCode(), 403);
     }
+    @Test(dependsOnMethods = "testCreateCouponSuccessfully")
+    void testCreateCouponWithExistingCode(){
+        Response response = api.createCoupon("", "Test coupon", "PERCENTAGE",
+                10.0, 50.0, 100, "2027-12-31T23:59:59.000Z",
+                adminToken);
+        assertEquals(response.statusCode(), 409);
+    }
 }
