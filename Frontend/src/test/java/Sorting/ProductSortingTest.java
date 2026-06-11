@@ -16,4 +16,13 @@ public class ProductSortingTest extends BaseTest {
 
         assertTrue(flow.hasSortInUrl("newest"));
     }
+
+    @Test
+    void testPriceLowToHighSorting() {
+
+        ProductFlow flow = new ProductFlow(page);
+        flow.sortByPriceLowToHigh();
+
+        assertTrue(flow.hasSortInUrl("price_asc"));
+    }
 }
