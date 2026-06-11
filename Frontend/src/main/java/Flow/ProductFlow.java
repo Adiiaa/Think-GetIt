@@ -26,6 +26,11 @@ public class ProductFlow {
         productPage.navigateToProducts();
         productPage.selectSortOption("price_asc");
     }
+    public void sortByPriceHighToLow(){
+
+        productPage.navigateToProducts();
+        productPage.selectSortOption("price_desc");
+    }
     public void sortByTopRated() {
 
         productPage.navigateToProducts();
