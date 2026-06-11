@@ -4,7 +4,9 @@ import com.microsoft.playwright.Page;
 import constants.pageUrls;
 
 public class ProductPage {
+
     private final Page page;
+
     public ProductPage(Page page){
         this.page = page;
     }
