@@ -13,8 +13,7 @@ public class ProductPage {
     }
     public void selectSortOption(String option) {
 
-        page.locator("SELECTOR_FOR_SORT_DROPDOWN")
-                .selectOption(option);
+        page.locator("select").selectOption(option);
     }
 
     public String getCurrentUrl() {
