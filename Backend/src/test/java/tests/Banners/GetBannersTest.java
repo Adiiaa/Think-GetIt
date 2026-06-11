@@ -15,7 +15,6 @@ public class GetBannersTest {
 
         Response response = api.getBanners();
         assertEquals(response.statusCode(), 200);
-
         assertTrue(response.jsonPath().getList("data").size() >= 0,
                 "Banners list should be returned");
     }
