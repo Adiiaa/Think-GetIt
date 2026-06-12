@@ -13,6 +13,7 @@ on:
       - ft/backend-orders
       - ft/backend-productReviews
       - ft/frontend-sorting
+      - ft/frontend-filtering
 
 
   pull_request:
