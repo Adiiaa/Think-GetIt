@@ -20,19 +20,10 @@ public class UpdateOrderStatusAdminTest {
     @Test
     void testConfirmOrderSuccessfully() {
 
-        String orderId =
-                api.getOrders(adminToken)
-                        .jsonPath()
-                        .getString("data[0].id");
+        String orderId = api.getOrders(adminToken).jsonPath().getString("data[0].id");
 
-        Response response =
-                api.updateOrderStatus(
-                        orderId,
-                        "CONFIRMED",
-                        "Order confirmed",
-                        "",
-                        adminToken
-                );
+        Response response = api.updateOrderStatus(orderId, "CONFIRMED", "Order confirmed",
+                        "", adminToken);
         assertEquals(response.statusCode(), 200);
         assertTrue(response.jsonPath().getBoolean("success"));
     }
