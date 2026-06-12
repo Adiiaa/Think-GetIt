@@ -1,4 +1,4 @@
-name: Backend API Tests
+name: Backend&Frontend API Tests
 
 on:
   push:
