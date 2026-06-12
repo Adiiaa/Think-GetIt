@@ -42,4 +42,12 @@ public class ProductSortingTest extends BaseTest {
 
         assertTrue(flow.hasSortInUrl("rating"));
     }
+    @Test
+    void testMostPopularSorting() {
+
+        ProductFlow flow = new ProductFlow(page);
+        flow.sortByMostPopular();
+
+        assertTrue(flow.hasSortInUrl("popular"));
+    }
 }
