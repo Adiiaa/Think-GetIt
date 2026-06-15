@@ -18,6 +18,7 @@ on:
       - ft/backend-search
       - ft/backend-wishlist
       - ft/frontend-filtering
+      - ft/frontend-shoppingCart
 
 
   pull_request:

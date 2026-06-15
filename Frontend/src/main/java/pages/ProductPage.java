@@ -1,5 +1,6 @@
 package pages;
 
+import Utils.locators;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import constants.pageUrls;
@@ -22,5 +23,14 @@ public class ProductPage {
     public String getCurrentUrl() {
 
         return page.url();
+    }
+    public void selectKidsAndBabyCategory(){
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Kids & Baby")).click();
+    }
+    public void hoverFirstProduct(){
+        page.locator(locators.HOVER_FIRST_PRODUCT).first().hover();
+    }
+    public void clickQuickAdd(){
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Quick Add")).first().click();
     }
 }
