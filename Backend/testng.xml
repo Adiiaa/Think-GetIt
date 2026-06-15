@@ -25,12 +25,9 @@
 <!--            <class name="tests.ShoppingCart.RemoveCartItemTest"/>-->
 <!--            <class name="tests.ShoppingCart.SaveItForLaterTest"/>-->
 <!--            <class name="tests.ShoppingCart.ApplyCouponTest"/>-->
-<<<<<<< HEAD
-=======
 
             <class name="tests.Search.SearchProductTest"/>
             <class name="tests.Search.SearchSuggestionsTest"/>
->>>>>>> ft/backend-search
         </classes>
     </test>
 
