@@ -247,6 +247,7 @@ public class ThinkGetItAPI {
         return BaseApi.postWithToken(Endpoints.SUBMIT_REVIEW + productId, payload, token);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Response getDashboard(String token){
      return BaseApi.getWithToken(Endpoints.GET_DASHBOARD, token);
     }
@@ -269,5 +270,37 @@ public class ThinkGetItAPI {
     public Response getBanners(){
         return BaseApi.get(Endpoints.GET_BANNERS);
 >>>>>>> ft/backend-banners
+=======
+
+    public Response searchProducts(String query, Integer page, Integer limit, String category, Double minPrice, Double maxPrice, String sort) {
+
+        StringBuilder endpoint = new StringBuilder(Endpoints.SEARCH_PRODUCTS + "?q=" + query);
+
+        if (page != null)
+            endpoint.append("&page=").append(page);
+
+        if (limit != null)
+            endpoint.append("&limit=").append(limit);
+
+        if (category != null)
+            endpoint.append("&category=").append(category);
+
+        if (minPrice != null)
+            endpoint.append("&minPrice=").append(minPrice);
+
+        if (maxPrice != null)
+            endpoint.append("&maxPrice=").append(maxPrice);
+
+        if (sort != null)
+            endpoint.append("&sort=").append(sort);
+
+        return BaseApi.get(endpoint.toString());
+    }
+    public Response getSearchSuggestions(String query){
+        return BaseApi.get(Endpoints.SEARCH_SUGGESTIONS + "?q=" + query);
+    }
+    public Response getTrendingSearches(){
+        return BaseApi.get(Endpoints.TRENDING_SEARCHES);
+>>>>>>> ft/backend-search
     }
 }

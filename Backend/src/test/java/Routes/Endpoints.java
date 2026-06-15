@@ -1,6 +1,7 @@
 package Routes;
 
 public class Endpoints {
+
     public static final String LOGIN = "/auth/login";
     public static final String REGISTER = "/auth/register";
     public static final String ME = "/auth/me";
@@ -37,9 +38,15 @@ public class Endpoints {
     public static final String GET_PRODUCT_REVIEWS = "/reviews/";
     public static final String SUBMIT_REVIEW = "/reviews/";
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static final String GET_DASHBOARD = "/admin/dashboard";
     public static final String GET_ADMIN_USERS = "/admin/users";
     public static final String CREATE_COUPON = "/admin/coupons";
+=======
+    public static final String SEARCH_PRODUCTS = "/search";
+    public static final String SEARCH_SUGGESTIONS = "/search/suggestions";
+    public static final String TRENDING_SEARCHES = "/search/trending";
+>>>>>>> ft/backend-search
 
 =======
     public static final String GET_BANNERS = "/banners";

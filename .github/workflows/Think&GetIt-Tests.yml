@@ -15,6 +15,7 @@ on:
       - ft/frontend-sorting
       - ft/backend-Admin
       - ft/backend-banners
+      - ft/backend-search
 
 
   pull_request:
