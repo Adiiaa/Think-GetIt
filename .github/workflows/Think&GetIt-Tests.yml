@@ -17,6 +17,7 @@ on:
       - ft/backend-banners
       - ft/backend-search
       - ft/backend-wishlist
+      - ft/frontend-filtering
 
 
   pull_request:
