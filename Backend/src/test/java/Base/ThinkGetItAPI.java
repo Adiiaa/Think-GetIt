@@ -246,6 +246,7 @@ public class ThinkGetItAPI {
         payload.put("body", body);
         return BaseApi.postWithToken(Endpoints.SUBMIT_REVIEW + productId, payload, token);
     }
+<<<<<<< HEAD
     public Response getDashboard(String token){
      return BaseApi.getWithToken(Endpoints.GET_DASHBOARD, token);
     }
@@ -264,5 +265,9 @@ public class ThinkGetItAPI {
         payload.put("maxUses", maxUses);
         payload.put("expiresAt", expiresAt);
         return BaseApi.postWithToken(Endpoints.CREATE_COUPON, payload, token);
+=======
+    public Response getBanners(){
+        return BaseApi.get(Endpoints.GET_BANNERS);
+>>>>>>> ft/backend-banners
     }
 }

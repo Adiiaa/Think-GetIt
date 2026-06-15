@@ -14,6 +14,7 @@ on:
       - ft/backend-productReviews
       - ft/frontend-sorting
       - ft/backend-Admin
+      - ft/backend-banners
 
 
   pull_request:
