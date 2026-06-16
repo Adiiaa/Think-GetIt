@@ -184,7 +184,6 @@ public class ThinkGetItAPI {
         CouponPayload payload =  new CouponPayload(code);
         return BaseApi.postCoupon(Endpoints.APPLY_COUPON, payload, token);
     }
-<<<<<<< HEAD
     public Response placeOrder(String addressId, String paymentMethod, String notes, double shippingFee, String token){
         Map<String, Object> payload = new HashMap<>();
         payload.put("addressId", addressId);
@@ -248,8 +247,6 @@ public class ThinkGetItAPI {
         payload.put("body", body);
         return BaseApi.postWithToken(Endpoints.SUBMIT_REVIEW + productId, payload, token);
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
     public Response getDashboard(String token){
      return BaseApi.getWithToken(Endpoints.GET_DASHBOARD, token);
     }
@@ -258,7 +255,7 @@ public class ThinkGetItAPI {
     }
     public Response createCoupon(String code, String description, String discountType,
                                  double discountValue, double minOrderAmount,
-                                 int maxUses, String expiresAt, String token){
+                                 int maxUses, String expiresAt, String token) {
         Map<String, Object> payload = new HashMap<>();
         payload.put("code", code);
         payload.put("description", description);
@@ -268,12 +265,10 @@ public class ThinkGetItAPI {
         payload.put("maxUses", maxUses);
         payload.put("expiresAt", expiresAt);
         return BaseApi.postWithToken(Endpoints.CREATE_COUPON, payload, token);
-=======
-    public Response getBanners(){
-        return BaseApi.get(Endpoints.GET_BANNERS);
->>>>>>> ft/backend-banners
-=======
-
+    }
+    public Response getBanners() {
+            return BaseApi.get(Endpoints.GET_BANNERS);
+        }
     public Response searchProducts(String query, Integer page, Integer limit, String category, Double minPrice, Double maxPrice, String sort) {
 
         StringBuilder endpoint = new StringBuilder(Endpoints.SEARCH_PRODUCTS + "?q=" + query);
@@ -301,10 +296,9 @@ public class ThinkGetItAPI {
     public Response getSearchSuggestions(String query){
         return BaseApi.get(Endpoints.SEARCH_SUGGESTIONS + "?q=" + query);
     }
-    public Response getTrendingSearches(){
+    public Response getTrendingSearches() {
         return BaseApi.get(Endpoints.TRENDING_SEARCHES);
->>>>>>> ft/backend-search
-=======
+    }
     public Response getWishlist(String token){
         return BaseApi.getWithToken(Endpoints.GET_WISHLIST, token);
     }
@@ -344,6 +338,5 @@ public class ThinkGetItAPI {
         Response response = BaseApi.get(Endpoints.GET_CATEGORY_BY_SLUG + slug);
         System.out.println("Product details: " + response.getBody().asString());
         return response.jsonPath().getString("data.variants[0].id");
->>>>>>> ft/backend-wishlist
     }
 }

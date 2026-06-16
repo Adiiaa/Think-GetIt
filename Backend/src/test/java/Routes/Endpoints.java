@@ -27,7 +27,6 @@ public class Endpoints {
     public static final String REMOVE_CART_ITEM = "/cart/items/";
     public static final String CART_ITEMS = "/cart/items/";
     public static final String APPLY_COUPON = "/cart/coupon";
-<<<<<<< HEAD
     public static final String PLACE_ORDER = "/orders";
     public static final String GET_ORDERS = "/orders";
     public static final String GET_ORDER_BY_ID = "/orders";
@@ -38,25 +37,16 @@ public class Endpoints {
     public static final String UPDATE_ORDER_STATUS = "/orders/admin";
     public static final String GET_PRODUCT_REVIEWS = "/reviews/";
     public static final String SUBMIT_REVIEW = "/reviews/";
-<<<<<<< HEAD
-<<<<<<< HEAD
     public static final String GET_DASHBOARD = "/admin/dashboard";
     public static final String GET_ADMIN_USERS = "/admin/users";
     public static final String CREATE_COUPON = "/admin/coupons";
-=======
     public static final String SEARCH_PRODUCTS = "/search";
     public static final String SEARCH_SUGGESTIONS = "/search/suggestions";
     public static final String TRENDING_SEARCHES = "/search/trending";
->>>>>>> ft/backend-search
-
-=======
     public static final String GET_BANNERS = "/banners";
->>>>>>> ft/backend-banners
-=======
     public static final String GET_WISHLIST = "/wishlist";
     public static final String ADD_TO_WISHLIST = "/wishlist/";
     public static final String REMOVE_FROM_WISHLIST = "/wishlist/";
     public static final String MOVE_WISHLIST_TO_CART = "/wishlist";
 
->>>>>>> ft/backend-wishlist
 }
